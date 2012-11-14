@@ -1,4 +1,4 @@
-require 'grape'
+require 'api'
 
 ImgSeek::Application.routes.draw do
   
