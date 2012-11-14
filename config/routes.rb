@@ -1,3 +1,5 @@
+require 'grape'
+
 ImgSeek::Application.routes.draw do
   
   mount ImgSeek::API => "/"
