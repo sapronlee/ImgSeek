@@ -1,0 +1,14 @@
+<button id="create">上传照片</button>
+<div id="result"></div>
+<script type="text/javascript" charset="utf-8">
+$("#create").click(function() {
+  $.post(
+    "/api/pictures/new",
+    {picture:{image:'/Users/chucklee/Downloads/map.jpeg'}},
+    function(data) {
+      $("#result").append(data);
+    },
+    "json"
+  )
+});
+</script>

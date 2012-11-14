@@ -1,0 +1,37 @@
+/*
+ *= require app_bootstrap
+ *= require_self
+ */
+
+html {
+  width: 100%;
+  height: 100%;
+  background: #eee image-url('bg.jpg') bottom left repeat;
+}
+body { 
+	background: none;
+}
+
+code { 
+	background: none; 
+}
+
+form {
+  margin-bottom: 0px;
+}
+
+.span100 {
+  width: 99%;
+}
+
+#errorExplanation {
+  h2 {
+    font-size: 20px;
+    margin-bottom: 9px;
+    margin: 0;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+}
+

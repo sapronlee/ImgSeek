@@ -1,0 +1,17 @@
+<li id="picture_<%= picture.id %>" class="span3">
+  <a href="<%= admin_picture_path(picture) %>" class="thumbnail">
+    <img src="<%= picture.image.thumb %>" alt="<%= picture.title %>">
+  </a>
+  <div class="info clearfix">
+    <h3><%= picture.title.truncate(20) %></h3>
+    <div class="action">
+      <%= link_to t("admin.links.edit"), edit_admin_picture_path(picture),
+        :class => "label label-warning" %>
+      <%= link_to t("admin.links.destroy"), admin_picture_path(picture),
+        :method => :delete,
+        :data => { :confirm => t("admin.messages.confirm") },
+        :class => "label label-important" %>
+    </div>
+    <span class="badge badge-info"><%= is_storage?(picture) %></span>
+  </div>
+</li>

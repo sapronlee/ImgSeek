@@ -1,0 +1,16 @@
+<% model_class = Picture %>
+
+<% content_for :toolbar do %>
+	<div class="btn-group">
+		<% if %w(index).include?(action_name) -%>
+      <%= link_to t("admin.buttons.new", :model => model_class.model_name.human), 
+  				new_admin_picture_path, :class => "btn btn-primary" %>
+      <%= link_to t("admin.buttons.store"), 
+  				store_admin_pictures_path, :class => "btn btn-primary" %>
+		<% end -%>
+		<% if %w(new create edit update).include?(action_name) -%>
+      <%= link_to t("admin.buttons.list", :model => model_class.model_name.human), 
+				admin_pictures_path, :class => "btn btn-primary" %>
+		<% end -%>
+	</div>
+<% end -%>

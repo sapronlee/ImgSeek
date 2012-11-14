@@ -1,0 +1,12 @@
+<%= render "base" %>
+<div class="albums">
+  <ul class="thumbnails">
+    <% @pictures.each do |picture| %>
+      <%= render :partial => "picture", :object => picture %>
+    <% end %>
+  </ul>
+  <div class="table-footer clearfix">
+    <div class="paginates-info"><%= page_entries_info @pictures %></div>
+    <%= paginate @pictures, :theme => "admin" %>
+  </div>
+</div>

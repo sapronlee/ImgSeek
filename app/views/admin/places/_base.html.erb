@@ -1,0 +1,14 @@
+<% model_class = Place %>
+
+<% content_for :toolbar do %>
+	<div class="btn-group">
+		<% if %w(index).include?(action_name) -%>
+    <%= link_to t("admin.buttons.new", :model => model_class.model_name.human), 
+				new_admin_place_path, :class => "btn btn-primary" %>
+		<% end -%>
+		<% if %w(new create edit update).include?(action_name) -%>
+      <%= link_to t("admin.buttons.list", :model => model_class.model_name.human), 
+				admin_places_path, :class => "btn btn-primary" %>
+		<% end -%>
+	</div>
+<% end -%>

@@ -1,0 +1,25 @@
+zh-CN:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    hints:
+      scenic:
+        name: "必填，100个字符以内。"
+      place:
+        name: "必填，100个字符以内。"
+        description: "必填，1000个字符以内。"
+        scenic: "必选，请选择该景点所属的景区。"
+        audio: "必选，请添加你的景点音频文件，格式为MP3。"
+        cover: "必选，请添加你的景点图片文件，格式为JPG,PNG等。"
+      pictrue:
+        image: "必选，只能是照片（jpg，png，gif）。"
+    placeholders:
+      user:
+        email: "你的邮箱"
+        password: "密码"
+

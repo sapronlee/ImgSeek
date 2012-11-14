@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, @scenic] do |f| %>
+	<fieldset>
+		<legend><%= t("admin.buttons.new", :model => @scenic.class.model_name.human) %></legend>
+		<%= error_messages_for @scenic, :class => "control-group alert alert-error fade in", :close => :true %>
+		<%= f.input :name, :input_html => { :class => "span5" } %>
+		<div class="form-actions">
+			<%= f.button :submit, :class => "btn-primary" %>
+			<%= link_to t("admin.buttons.cancel"), admin_scenics_path, :class => :btn %>
+		</div>
+	</fieldset>
+<% end -%>

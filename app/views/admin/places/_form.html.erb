@@ -1,0 +1,18 @@
+<%= simple_form_for [:admin, @place] do |f| %>
+	<fieldset>
+		<legend><%= t("admin.buttons.new", :model => @place.class.model_name.human) %></legend>
+		<%= error_messages_for @place, :class => "control-group alert alert-error fade in", :close => :true %>
+		<%= f.input :name, :input_html => { :class => "span5" } %>
+    <% if @scenic.blank? %>
+      <%= f.association :scenic %>
+    <% else %>
+      <%= f.input :scenic_id, :input_html => { :value => @scenic.id }, :as => :hidden %>
+    <% end %>
+    <%= f.input :description, :input_html => { :class => "span100" }, :as => :text %>
+    <%= f.input :audio, :as => :file %>
+		<div class="form-actions">
+			<%= f.button :submit, :class => "btn-primary" %>
+			<%= link_to t("admin.buttons.cancel"), admin_places_path, :class => :btn %>
+		</div>
+	</fieldset>
+<% end -%>

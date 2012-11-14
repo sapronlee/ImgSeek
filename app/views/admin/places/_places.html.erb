@@ -1,0 +1,26 @@
+<% @places.each do |place| %>
+  <tr>
+    <td class="select-all">
+      <%= check_box_tag "place_ids[]", place.id, false, :id => "place_#{place.id}" %>
+    </td>
+    <td class="content"><h6><%= link_to place.name, admin_place_pictures_path(place) %></h6></td>
+    <td class="num"><%= place.pictures_count %></td>
+    <td class="date"><%= l place.created_at.to_date, :format => :long %></td>
+    <td class="action">
+      <%= link_to raw("<i class=\"icon-plus icon-large\"></i>"), 
+                  new_admin_place_picture_path(place), 
+                  :title => t("admin.pages.places.new"),
+                  :rel => :tooltip %>
+      <%= link_to raw("<i class=\"icon-edit icon-large\"></i>"), 
+                  edit_admin_place_path(place), 
+                  :title => t("admin.buttons.edit", :model => place.name),
+                  :rel => :tooltip %>
+      <%= link_to raw("<i class=\"icon-trash icon-large\"></i>"),
+                  admin_place_path(place),
+                  :method => :delete,
+                  :title => t("admin.buttons.destroy", :model => place.name),
+                  :data => { :confirm => t("admin.messages.confirm") },
+                  :rel => :tooltip %>
+    </td>
+  </tr>
+<% end %>

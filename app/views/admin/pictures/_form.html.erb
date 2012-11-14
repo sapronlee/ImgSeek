@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @picture] do |f| %>
+	<fieldset>
+		<legend><%= t("admin.buttons.new", :model => @picture.class.model_name.human) %></legend>
+		<%= error_messages_for @picture, :class => "control-group alert alert-error fade in", :close => :true %>
+		<% if %w(edit update).include?(action_name) %>
+      <%= f.input :title, :input_html => { :class => "span5" } %>
+    <% end %>
+    <%= f.association :scenic %>
+    <%= f.association :place %>
+    <%= f.input :image, :as => :file %>
+		<div class="form-actions">
+			<%= f.button :submit, :class => "btn-primary" %>
+			<%= link_to t("admin.buttons.cancel"), admin_pictures_path, :class => :btn %>
+		</div>
+	</fieldset>
+<% end -%>

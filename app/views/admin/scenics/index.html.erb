@@ -1,0 +1,23 @@
+<%- model_class = Scenic -%>
+<%= render "base" %>
+<%= simple_form_for :scenic, :url => nil, :html => { :class => "destroies-form" }  do |f| -%>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th class="selected"><%= check_box_tag "selected" %></th>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th class="num"><%= model_class.human_attribute_name(:places_count) %></th>
+        <th class="date"><%= model_class.human_attribute_name(:created_at) %></th>
+        <th class="action"><%= t("admin.links.action") %></th>
+      </tr>
+    </thead>
+    <tbody>
+			<%= render "scenics" %>
+    </tbody>
+  </table>
+<% end -%>
+
+<div class="table-footer clearfix">
+  <div class="paginates-info"><%= page_entries_info @scenics %></div>
+  <%= paginate @scenics, :theme => "admin" %>
+</div>

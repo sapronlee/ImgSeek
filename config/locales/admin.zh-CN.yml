@@ -1,0 +1,58 @@
+zh-CN:
+  admin:
+    root: "控制台"
+    pages:
+      home:
+        index: "首页"
+      scenics:
+        index: "景区"
+        search: "搜索景区"
+        new: "添加景区"
+        edit: "修改景区"
+      places:
+        index: "景点"
+        search: "搜索景点"
+        new: "添加景点"
+        edit: "修改景点"
+      pictures:
+        index: "照片"
+        search: "搜索照片"
+        new: "添加照片"
+        edit: "修改照片"
+    menus:
+      root: "首页"
+      scenic: "景区"
+      place: "景点"
+      picture: "照片"
+    links:
+      back_front: "返回前台"
+      logout: "退出"
+      action: "操作"
+      prompt: "请选择"
+      new: "添加"
+      edit: "编辑"
+      destroy: "删除"
+      storage: "入库"
+    buttons:
+      list: "%{model}列表"
+      new:  "添加%{model}"
+      edit: "修改%{model}"
+      destroy: "删除%{model}"
+      cancel: "取消"
+      destroies: "批量删除"
+      search: "搜索"
+      close: "关闭"
+      save: "保存"
+      select_file: "选择文件"
+      add_files: "选择文件"
+      start_upload: "开始上传"
+      cancel_upload: "取消上传"
+      delete_upload: "删除"
+      store: "全部入库"
+    messages:
+      success: "操作成功！"
+      error: "操作失败！"
+      warning: "警告！"
+      confirm: "你确定要这样做吗？"
+      select_empty: "你没有选中任何东西，操作无法继续。"
+      upload_queue_complete: "列表上传完毕。"

@@ -1,0 +1,27 @@
+zh-CN:
+  activerecord:
+    models:
+      scenic: "景区"
+      place: "景点"
+      picture: "照片"
+    attributes:
+      scenic:
+        name: "名字"
+        created_at: "创建时间"
+        places_count: "景点数"
+      place:
+        name: "名字"
+        description: "描述"
+        created_at: "创建时间"
+        scenic_id: "景区"
+        scenic: "景区"
+        pictures_count: "照片数"
+        audio: "音频"
+      picture:
+        image: "照片"
+        title: "名字"
+        scenic: "景区"
+        scenic_id: "景区"
+        place: "景点"
+        place_id: "景点"
+    errors:

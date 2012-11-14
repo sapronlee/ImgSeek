@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title("Control Cpanel") %>
+  <%= stylesheet_link_tag "admin" %>
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
+  <![endif]-->
+  <%= javascript_include_tag "admin" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <%= render "admin/shared/navbar" %>
+  <div class="container">
+    <%= render_breadcrumb %>
+    <div id="main" class="box">
+      <% if content_for? :toolbar -%>
+        <div id="toolbar" class="btn-toolbar clearfix">
+          <%= yield :toolbar %>
+        </div>
+      <% end -%>
+      <%= bootstrap_flash %>
+      <%= yield %>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="suggest">使用 <a href="http://www.mozillaonline.com/" target="_blank" rel="nofollow">Firefox</a> 或 <a href="http://www.google.com/chrome" target="_blank" rel="nofollow">Chrome</a> 浏览访问本站将会获得更佳的视觉体验.</p>
+    </div>
+  </footer>
+</body>
+</html>
