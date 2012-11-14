@@ -36,6 +36,7 @@ class Seek
         :params => { :db_id => picture.scenic_id, :id => picture.id, :filename => picture.image.path })
     seed(:method_name => "saveDb",
         :params => { :db_id => picture.scenic_id })
+    save_all_db
   end
   
   def self.reset_db(db_id)
@@ -56,6 +57,7 @@ class Seek
         :params => { :db_id => picture.scenic_id, :id => picture.id })
     seed(:method_name => "saveDb",
         :params => { :db_id => picture.scenic_id })
+    save_all_db
   end
   
   # options => { :method_name => "queryImgID", :params => { :db_id => 1, :id => 1, :numres => 12, :sketch => 0, :fast => false } }
