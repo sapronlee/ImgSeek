@@ -1,6 +1,6 @@
 require 'grape'
 
-class API < Grape::API
+class ImgSeek::API < Grape::API
   prefix 'api'
   format :json
     
