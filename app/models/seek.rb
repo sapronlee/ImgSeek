@@ -46,6 +46,11 @@ class Seek
     seed(:method_name => "saveAllDbs")
   end
   
+  def self.create_db(scenic)
+    seed(:method_name => "createDb", :params => { :db_id => scenic.id })
+    save_all_db
+  end
+  
   def self.remove_image(picture)
     seed(:method_name => "removeImg", 
         :params => { :db_id => picture.scenic_id, :id => picture.id })

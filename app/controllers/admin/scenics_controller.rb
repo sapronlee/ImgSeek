@@ -16,6 +16,7 @@ class Admin::ScenicsController < Admin::ApplicationController
 		set_page_tags(t("admin.pages.scenics.new"))
 		@scenic = Scenic.new params[:scenic]
 		if @scenic.save
+      Seek.create_db(@scenic)
 			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
 		else
 			render :new
