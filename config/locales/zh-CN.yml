@@ -17,6 +17,7 @@ zh-CN:
         scenic: "景区"
         pictures_count: "照片数"
         audio: "音频"
+        cover: "图片"
       picture:
         image: "照片"
         title: "名字"

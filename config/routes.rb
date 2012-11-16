@@ -18,4 +18,10 @@ ImgSeek::Application.routes.draw do
       get 'store', :on => :collection
     end
   end
+  
+  namespace :api2 do
+    resources :places, :only => [] do
+      get 'audio', :on => :member
+    end
+  end
 end

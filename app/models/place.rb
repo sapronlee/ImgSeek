@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-  attr_accessible :name, :description, :scenic_id, :audio
+  attr_accessible :name, :description, :scenic_id, :audio, :cover
   
   # Associations
   belongs_to :scenic, :counter_cache => true
@@ -7,9 +7,10 @@ class Place < ActiveRecord::Base
   
   # carrierwave
   mount_uploader :audio, MediaUploader
+  mount_uploader :cover, CoverUploader
   
   # Validates
-  validates :name, :scenic_id, :audio, :description, :presence => true
+  validates :name, :scenic_id, :audio, :description, :cover, :presence => true
 	with_options :if => :name? do |name|
     name.validates :name, :length => { :within => 2..20 }
     name.validates :name, :uniqueness => true

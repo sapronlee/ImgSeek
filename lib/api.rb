@@ -6,7 +6,7 @@ class ImgSeek::API < Grape::API
     
   resource :pictures do
     get ':id' do
-      Picture.find(params[:id])
+      Picture.find(params[:id]).to_json
     end
     
     post 'new' do
@@ -22,6 +22,12 @@ class ImgSeek::API < Grape::API
       else
         @picture.errors.messages.to_json
       end
+    end
+  end
+  
+  resource :places do
+    get ':id' do
+      Place.find(params[:id]).to_json
     end
   end
 end
