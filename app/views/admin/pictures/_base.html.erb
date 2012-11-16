@@ -8,7 +8,7 @@
       <%= link_to t("admin.buttons.store"), 
   				store_admin_pictures_path, :class => "btn btn-primary" %>
 		<% end -%>
-		<% if %w(new create edit update).include?(action_name) -%>
+		<% if %w(new create edit update show).include?(action_name) -%>
       <%= link_to t("admin.buttons.list", :model => model_class.model_name.human), 
 				admin_pictures_path, :class => "btn btn-primary" %>
 		<% end -%>

@@ -218,13 +218,20 @@ pre {
       width: 215px;
     }
     .thumbnail {
-      height: 140px;
       width: 205px;
+      height: 140px;
       line-height: 140px;
-      font-size: 140px;
+      margin: 0 auto;
+      vertical-align: middle;
+      display: table-cell;
+      text-align: center;
+      *display: block;
+      *font-size:122.2px;
+      *font-family:Arial;
       img {
         max-width: 205px;
         max-height: 140px;
+        vertical-align: middle;
       }
     }
     .info {
@@ -327,6 +334,26 @@ pre {
       .action {
         margin-left: 10px;
       }
+    }
+  }
+}
+
+.picture {
+  .wapper {
+    text-align: center;
+    img {
+      margin: 0 auto;
+      vertical-align: middle;
+      max-width: 920px;
+    }
+  }
+  .info {
+    margin-top: 10px;
+    text-align: center;
+    .title {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 5px;
     }
   }
 }

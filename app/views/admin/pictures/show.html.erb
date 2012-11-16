@@ -1,0 +1,10 @@
+<%= render "base" %>
+<div class="picture">
+  <div class="wapper">
+    <%= image_tag @picture.image.url %>
+  </div>
+  <div class="info">
+    <span class="title"><%= @picture.title %></span>
+    <span class="created_at"><%= l @picture.created_at.to_datetime, :format => :long %></span>
+  </div>
+</div>

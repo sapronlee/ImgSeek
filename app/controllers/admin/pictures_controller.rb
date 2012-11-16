@@ -15,6 +15,11 @@ class Admin::PicturesController < Admin::ApplicationController
     Seek.save_all_db
     redirect_to admin_pictures_path, :notice => t("admin.messages.success")
   end
+  
+  def show
+    @picture = Picture.find params[:id]
+    set_page_tags(@picture.title)
+  end
 
 	def new
 		set_page_tags(t("admin.pages.pictures.new"))
