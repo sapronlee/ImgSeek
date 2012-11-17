@@ -23,7 +23,7 @@ class Picture < ActiveRecord::Base
       similarity = XPath.first(e, "*//double").text.to_f
       pictrue_id = XPath.first(e, "*//int").text.to_i
       puts "result id:#{pictrue_id}, similarity:#{similarity}"
-      if similarity > 50.0
+      if similarity > Setting.similarity
         els << [pictrue_id, similarity]
         break
       end

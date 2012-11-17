@@ -7,3 +7,5 @@ Setting.defaults[:app_description] = "This is One Trip 3G."
 Setting.defaults[:admin_PageSize] = 10
 Setting.defaults[:admin_PlacePageSize] = 8
 Setting.defaults[:admin_PhotoPageSize] = 12
+
+Setting.defaults[:similarity] = 40.0
