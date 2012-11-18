@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113023542) do
+ActiveRecord::Schema.define(:version => 20121118030108) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "place_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20121113023542) do
   create_table "places", :force => true do |t|
     t.integer  "scenic_id"
     t.string   "name",                          :null => false
-    t.string   "description"
+    t.text     "description"
     t.string   "audio"
     t.string   "audio_type"
     t.integer  "audio_size",     :default => 0

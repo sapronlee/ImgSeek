@@ -16,7 +16,7 @@ class Place < ActiveRecord::Base
     name.validates :name, :uniqueness => true
   end
   with_options :if => :description? do |description|
-  	description.validates :description, :length => { :within => 2..1000 }
+  	description.validates :description, :length => { :within => 2..10000 }
   end
   
 end
