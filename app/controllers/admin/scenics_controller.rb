@@ -53,17 +53,6 @@ class Admin::ScenicsController < Admin::ApplicationController
       redirect_to admin_scenics_path, :alert => t(e)
     end
 	end
-  
-  def store
-    @scenic = Scenic.find params[:id]
-    begin
-      if @scenic.store
-        redirect_to admin_scenics_path, :notice => t("admin.messages.success")
-      end
-    rescue => e
-      redirect_to admin_scenics_path, :alert => t(e)
-    end
-  end
 
 	private
 	def add_common_breadcrumb

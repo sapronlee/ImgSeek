@@ -13,10 +13,6 @@
                   new_admin_scenic_place_path(scenic), 
                   :title => t("admin.pages.places.new"),
                   :rel => :tooltip %>
-      <%= link_to raw("<i class=\"icon-refresh icon-large\"></i>"), 
-                  store_admin_scenic_path(scenic), 
-                  :title => t("admin.buttons.store"),
-                  :rel => :tooltip %>
       <%= link_to raw("<i class=\"icon-edit icon-large\"></i>"), 
                   edit_admin_scenic_path(scenic), 
                   :title => t("admin.buttons.edit", :model => scenic.name),

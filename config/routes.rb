@@ -9,7 +9,6 @@ ImgSeek::Application.routes.draw do
   namespace :admin do
   	root :to => "home#index"
   	resources :scenics, :except => [:show] do
-      get 'store', :on => :member
       resources :places
     end
     resources :places do

@@ -50,6 +50,12 @@ class Server
     end
   end
   
+  def self.get_dbs
+    begin
+      @@server.call("getDbList")
+    end
+  end
+  
   def self.db_exist?(db_id)
     begin
       @@server.call("isValidDb", db_id)
