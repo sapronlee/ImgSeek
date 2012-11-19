@@ -41,7 +41,10 @@ class Picture < ActiveRecord::Base
   
   def remove_image_to_imgseek
     begin
-      Server.remove_image(scenic_id, id) if !place_id.zero?
+      if !place_id.zero?
+        Server.remove_image(scenic_id, id)
+        Server.save_db(scenic_id)
+      end
     rescue
       raise "imgseeks.server.error"
     end
@@ -49,7 +52,10 @@ class Picture < ActiveRecord::Base
   
   def add_image_to_imgseek
     begin
-      Server.add_image(scenic_id, id, image.path) if !place_id.zero?
+      if !place_id.zero?
+        Server.add_image(scenic_id, id, image.path)
+        Server.save_db(scenic_id)
+      end
     rescue
       raise "imgseeks.server.error"
     end

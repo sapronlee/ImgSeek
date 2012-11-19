@@ -26,7 +26,6 @@ class Server
     begin
       if !image_exist?(db_id, id)
         @@server.call("addImg", db_id, id, filename)
-        save_db(db_id)
       end
     end
   end
@@ -35,7 +34,6 @@ class Server
     begin
       if image_exist?(db_id, id)
         @@server.call("removeImg", db_id, id)
-        save_db(db_id)
       end
     end
   end

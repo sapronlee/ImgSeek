@@ -31,9 +31,10 @@ class Scenic < ActiveRecord::Base
   def store
     begin
       Server.refresh_db(id)
-      Picture.where("place_id > 0 AND scenic_id = #{id}").find_each(:batch_size => 100) do |picture|
+      Picture.where("place_id > 0 AND scenic_id = #{id}").find_each(:batch_size => 50) do |picture|
         Server.add_image(id, picture.id, picture.image.path)
       end
+      Server.save_db(id)
       true
     rescue
       raise "imgseeks.server.error"
