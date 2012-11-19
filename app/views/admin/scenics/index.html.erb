@@ -6,6 +6,8 @@
       <tr>
         <th class="selected"><%= check_box_tag "selected" %></th>
         <th><%= model_class.human_attribute_name(:name) %></th>
+        <th class="num"><%= model_class.human_attribute_name(:servers_count) %></th>
+        <th class="num"><%= model_class.human_attribute_name(:pictures_count) %></th>
         <th class="num"><%= model_class.human_attribute_name(:places_count) %></th>
         <th class="date"><%= model_class.human_attribute_name(:created_at) %></th>
         <th class="action"><%= t("admin.links.action") %></th>

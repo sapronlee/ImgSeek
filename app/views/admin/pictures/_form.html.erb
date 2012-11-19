@@ -5,9 +5,17 @@
 		<% if %w(edit update).include?(action_name) %>
       <%= f.input :title, :input_html => { :class => "span5" } %>
     <% end %>
-    <%= f.association :scenic %>
-    <%= f.association :place %>
-    <%= f.input :image, :as => :file %>
+    <% if %w(edit update).include?(action_name) or @place.blank? %>
+      <%= f.association :scenic %>
+      <%= f.association :place %>
+    <% else %>
+      <%= f.input :scenic_id, :as => :hidden, :input_html => { :value => @place.scenic_id } %>
+      <%= f.input :place_id, :as => :hidden, :input_html => { :value => @place.id } %>
+    <% end %>
+    <% if %w(new create).include?(action_name) or !@picture.place_id.zero? %>
+      <%= f.input :image, :as => :file %>
+    <% end %>
+    <%= image_tag(@picture.image.thumb.url) if @picture.image? %>
 		<div class="form-actions">
 			<%= f.button :submit, :class => "btn-primary" %>
 			<%= link_to t("admin.buttons.cancel"), admin_pictures_path, :class => :btn %>

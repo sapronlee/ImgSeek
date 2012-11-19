@@ -10,25 +10,20 @@ class Picture < ActiveRecord::Base
   
   # filter
   before_save :update_image_attributes, :update_place_attributes
+  after_save :add_image_to_imgseek
+  after_destroy :remove_image_to_imgseek
   
   # Validates
   validates :image, :scenic_id, :presence => true
   
-  # scope :latest, order_by(:created_at => :desc)
-  
-  def search_pictures
-    doc = Seek.seed(:method_name => "queryImgPath", :params => { :db_id => self.scenic_id, :path => self.image.path, :numres => 1 })
-    els = []
-    doc.elements.to_a("//data//array").each do |e|
-      similarity = XPath.first(e, "*//double").text.to_f
-      pictrue_id = XPath.first(e, "*//int").text.to_i
-      puts "result id:#{pictrue_id}, similarity:#{similarity}"
-      if similarity > Setting.similarity
-        els << [pictrue_id, similarity]
-        break
-      end
+  def find_image_to_imgseek
+    result = Server.find_image(scenic_id, image.path, 1)
+    if !result.nil?
+      puts "similarity is #{result.first.last}"
+      Picture.find(result.first.first) if result.first.last > Setting.similarity
+    else
+      nil
     end
-    return els
   end
   
   private
@@ -42,6 +37,22 @@ class Picture < ActiveRecord::Base
   
   def update_place_attributes
     self.place_id = 0 if self.place_id.blank?
+  end
+  
+  def remove_image_to_imgseek
+    begin
+      Server.remove_image(scenic_id, id) if !place_id.zero?
+    rescue
+      raise "imgseeks.server.error"
+    end
+  end
+  
+  def add_image_to_imgseek
+    begin
+      Server.add_image(scenic_id, id, image.path) if !place_id.zero?
+    rescue
+      raise "imgseeks.server.error"
+    end
   end
 
 end

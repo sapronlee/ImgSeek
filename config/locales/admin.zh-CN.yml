@@ -1,4 +1,7 @@
 zh-CN:
+  imgseeks:
+    server:
+      error: "`ImgSeek` 服务器异常，请检查！"
   admin:
     root: "控制台"
     pages:
@@ -48,7 +51,7 @@ zh-CN:
       start_upload: "开始上传"
       cancel_upload: "取消上传"
       delete_upload: "删除"
-      store: "全部入库"
+      store: "入库"
     messages:
       success: "操作成功！"
       error: "操作失败！"

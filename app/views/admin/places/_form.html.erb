@@ -11,6 +11,7 @@
     <%= f.input :description, :input_html => { :class => "span100" }, :as => :text %>
     <%= f.input :audio, :as => :file %>
     <%= f.input :cover, :as => :file %>
+    <%= image_tag(@place.cover.thumb.url) if @place.cover? %>
 		<div class="form-actions">
 			<%= f.button :submit, :class => "btn-primary" %>
 			<%= link_to t("admin.buttons.cancel"), admin_places_path, :class => :btn %>

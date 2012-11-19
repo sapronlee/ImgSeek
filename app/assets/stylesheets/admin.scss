@@ -15,6 +15,13 @@ pre {
   font-size: 11px;
 }
 
+textarea.log {
+  width: 906px;
+  height: 160px;
+  minwidth: 906px;
+  minheight: 160px; 
+}
+
 /* 表格 */
 .table-bordered {
 	th, td {
@@ -27,7 +34,7 @@ pre {
 		}
 		&.action {
 			text-align: center;
-			width: 80px;
+			width: 100px;
 			a {
 				display: inline-block;
 				padding: 0 3px;

@@ -1,13 +1,15 @@
 <li id="picture_<%= picture.id %>" class="span3">
-  <a href="<%= admin_picture_path(picture) %>" class="thumbnail">
+  <a href="<%= @place.blank? ? admin_picture_path(picture) : admin_place_picture_path(@place, picture) %>" class="thumbnail">
     <img src="<%= picture.image.thumb %>" alt="<%= picture.title %>">
   </a>
   <div class="info clearfix">
     <h3><%= picture.title.truncate(20) %></h3>
     <div class="action">
-      <%= link_to t("admin.links.edit"), edit_admin_picture_path(picture),
+      <%= link_to t("admin.links.edit"), 
+        (@place.blank? ? edit_admin_picture_path(picture) : edit_admin_place_picture_path(@place, picture)),
         :class => "label label-warning" %>
-      <%= link_to t("admin.links.destroy"), admin_picture_path(picture),
+      <%= link_to t("admin.links.destroy"), 
+        (@place.blank? ? admin_picture_path(picture) : admin_place_picture_path(@place, picture)),
         :method => :delete,
         :data => { :confirm => t("admin.messages.confirm") },
         :class => "label label-important" %>

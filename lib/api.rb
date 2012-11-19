@@ -12,15 +12,12 @@ class ImgSeek::API < Grape::API
     post 'new' do
       @picture = Picture.new params[:picture]
       if @picture.save
-        result = []
-        @picture.search_pictures.each do |r|
-          pic = Picture.find r.first
-          puts pic.id
-          result << pic.place
+        p = @picture.find_image_to_imgseek
+        if p.nil?
+          []
+        else
+          p.place.to_json
         end
-        result.to_json
-      else
-        @picture.errors.messages.to_json
       end
     end
   end

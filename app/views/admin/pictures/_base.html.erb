@@ -3,14 +3,32 @@
 <% content_for :toolbar do %>
 	<div class="btn-group">
 		<% if %w(index).include?(action_name) -%>
-      <%= link_to t("admin.buttons.new", :model => model_class.model_name.human), 
-  				new_admin_picture_path, :class => "btn btn-primary" %>
-      <%= link_to t("admin.buttons.store"), 
-  				store_admin_pictures_path, :class => "btn btn-primary" %>
+      <% if @place.blank? %>
+        <%= link_to t("admin.buttons.new", :model => model_class.model_name.human), 
+    				new_admin_picture_path, :class => "btn btn-primary" %>
+      <% else %>
+        <%= link_to t("admin.buttons.new", :model => model_class.model_name.human), 
+    				new_admin_place_picture_path(@place), :class => "btn btn-primary" %>
+      <% end %>
 		<% end -%>
 		<% if %w(new create edit update show).include?(action_name) -%>
-      <%= link_to t("admin.buttons.list", :model => model_class.model_name.human), 
-				admin_pictures_path, :class => "btn btn-primary" %>
+      <% if @place.blank? %>
+        <%= link_to t("admin.buttons.list", :model => model_class.model_name.human), 
+  				admin_pictures_path, :class => "btn btn-primary" %>
+      <% else %>
+        <%= link_to t("admin.buttons.list", :model => model_class.model_name.human), 
+  				admin_place_pictures_path(@place), :class => "btn btn-primary" %>
+      <% end %>
 		<% end -%>
+    <% if %w(show).include?(action_name) -%>
+      <%= link_to t("admin.links.edit"), 
+        (@place.blank? ? edit_admin_picture_path(@picture) : edit_admin_place_picture_path(@place, @picture)),
+        :class => "btn btn-primary" %>
+      <%= link_to t("admin.links.destroy"), 
+        (@place.blank? ? admin_picture_path(@picture) : admin_place_picture_path(@place, @picture)),
+        :method => :delete,
+        :data => { :confirm => t("admin.messages.confirm") },
+        :class => "btn btn-primary" %>
+    <% end %>
 	</div>
 <% end -%>

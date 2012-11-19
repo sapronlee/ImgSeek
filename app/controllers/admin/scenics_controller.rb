@@ -15,12 +15,15 @@ class Admin::ScenicsController < Admin::ApplicationController
 	def create
 		set_page_tags(t("admin.pages.scenics.new"))
 		@scenic = Scenic.new params[:scenic]
-		if @scenic.save
-      Seek.create_db(@scenic)
-			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
-		else
-			render :new
-		end
+    begin
+  		if @scenic.save
+  			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
+  		else
+  			render :new
+  		end
+    rescue => e
+      redirect_to admin_scenics_path, :alert => t(e)
+    end
 	end
 
 	def edit
@@ -40,12 +43,27 @@ class Admin::ScenicsController < Admin::ApplicationController
 
 	def destroy
     @scenic = Scenic.find params[:id]
-		if @scenic.destroy
-			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
-		else
-			redirect_to admin_scenics_path, :alert => t("admin.messages.error")
-		end
+    begin
+  		if @scenic.destroy
+  			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
+  		else
+  			redirect_to admin_scenics_path, :alert => t("admin.messages.error")
+  		end
+    rescue => e
+      redirect_to admin_scenics_path, :alert => t(e)
+    end
 	end
+  
+  def store
+    @scenic = Scenic.find params[:id]
+    begin
+      if @scenic.store
+        redirect_to admin_scenics_path, :notice => t("admin.messages.success")
+      end
+    rescue => e
+      redirect_to admin_scenics_path, :alert => t(e)
+    end
+  end
 
 	private
 	def add_common_breadcrumb

@@ -9,14 +9,13 @@ ImgSeek::Application.routes.draw do
   namespace :admin do
   	root :to => "home#index"
   	resources :scenics, :except => [:show] do
+      get 'store', :on => :member
       resources :places
     end
     resources :places do
       resources :pictures
     end
-    resources :pictures do
-      get 'store', :on => :collection
-    end
+    resources :pictures
   end
   
   namespace :api2 do

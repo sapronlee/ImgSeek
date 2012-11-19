@@ -9,6 +9,8 @@ zh-CN:
         name: "名字"
         created_at: "创建时间"
         places_count: "景点数"
+        servers_count: "入库数"
+        pictures_count: "照片数"
       place:
         name: "名字"
         description: "描述"
