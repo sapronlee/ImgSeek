@@ -31,7 +31,7 @@ class Scenic < ActiveRecord::Base
   def store
     begin
       Server.refresh_db(id)
-      Picture.where("place_id > 0 AND scenic_id = #{id}").find_each(:batch_size => 50) do |picture|
+      Picture.where("place_id > 0 AND scenic_id = #{id}").limit(100).find_each(:batch_size => 50) do |picture|
         Server.add_image(id, picture.id, picture.image.path)
       end
       Server.save_db(id)
