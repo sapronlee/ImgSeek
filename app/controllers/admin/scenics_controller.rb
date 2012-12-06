@@ -34,10 +34,14 @@ class Admin::ScenicsController < Admin::ApplicationController
 	def update
 		set_page_tags(t("admin.pages.scenics.edit"))
 		@scenic = Scenic.find params[:id]
-		if @scenic.update_attributes params[:scenic]
-			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
-    else
-    	render :edit
+    begin
+  		if @scenic.update_attributes params[:scenic]
+  			redirect_to admin_scenics_path, :notice => t("admin.messages.success")
+      else
+      	render :edit
+      end
+    rescue => e
+      redirect_to admin_scenics_path, :alert => t(e)
     end
 	end
 
@@ -58,6 +62,5 @@ class Admin::ScenicsController < Admin::ApplicationController
 	def add_common_breadcrumb
 		add_breadcrumb(t("admin.pages.scenics.index"), admin_scenics_path)
 	end
-  
   
 end
