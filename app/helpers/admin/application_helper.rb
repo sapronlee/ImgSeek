@@ -7,4 +7,13 @@ module Admin::ApplicationHelper
       raw("<i class=\"icon-remove icon-white\"></i>")
     end
   end
+  
+  def translate_format(source, t_prefix = nil)
+    if !t_prefix.nil?
+      t("#{t_prefix}.#{source.gsub(/[\s-]/, "_").downcase}")
+    else
+      t("#{source.gsub(/[\s-]/, "_").downcase}")
+    end
+    
+  end
 end

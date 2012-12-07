@@ -1,29 +1,11 @@
 <% render "base" %>
-<div class="page-header">
-  <h1>服务器信息</h1>
+<div id="server">
+  <div class="page-header">
+    <h1>服务器信息</h1>
+  </div>
+  <%= render "status" %>
+  <div class="page-header">
+    <h1>服务器日志</h1>
+  </div>
+  <textarea class="log"><%= @server_logs %></textarea>
 </div>
-<% if !@isk_daemon.blank? %>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>序号</th>
-        <th>名称</th>
-        <th>值</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @isk_daemon.each do |k, v| %>
-      <tr>
-        <td>#</td>
-        <td><%= k %></td>
-        <td><%= v %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
-
-<div class="page-header">
-  <h1>服务器日志</h1>
-</div>
-<textarea class="log"><%= @isk_daemon_log %></textarea>

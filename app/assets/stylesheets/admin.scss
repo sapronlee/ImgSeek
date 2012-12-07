@@ -17,9 +17,74 @@ pre {
 
 textarea.log {
   width: 906px;
-  height: 160px;
-  minwidth: 906px;
-  minheight: 160px; 
+  height: 200px;
+  min-width: 906px;
+  max-width: 906px;
+  min-height: 200px; 
+}
+
+.page-header {
+  padding-bottom: 0;
+  margin: 20px 0 20px;
+  h1 {
+    font-size: 30px;
+  }
+}
+
+/* api */
+.api-description {
+  padding: 0 10px;
+  blockquote {
+    background-color: #E5ECF9;
+    border-left-color: #36C;
+    padding: 5px 0 5px 15px;
+    p {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  blockquote.error {
+    background-color: #F2DEDE;
+    border-left-color: #B94A48;
+  }
+}
+.api-list {
+  padding: 0 10px;
+  margin-bottom: 40px;
+}
+.api-content {
+  padding: 0 10px;
+  .api {
+    margin-bottom: 10px;
+    background: #f7f7f7;
+    h3 {
+      margin: 0;
+      background: #08C;
+      color: #fff;
+      padding-left: 10px;
+    }
+    dl {
+      margin-bottom: 0;
+      margin-top: 5px;
+      dt {
+        margin: 5px 0;
+        font-weight: bold;
+      }
+    }
+    h6 {
+      margin-bottom: 3px;
+    }
+    small {
+      margin-top: 10px;
+      display: block;
+      &::before {
+        content: '\2014 \00A0';
+      }
+    }
+    table {
+      margin-bottom: 0;
+    }
+  }
 }
 
 /* 表格 */

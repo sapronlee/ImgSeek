@@ -1,8 +1,4 @@
-require 'api'
-
 ImgSeek::Application.routes.draw do
-  
-  mount ImgSeek::API => "/"
   
   root :to => 'home#index'
   
@@ -15,11 +11,19 @@ ImgSeek::Application.routes.draw do
       resources :pictures
     end
     resources :pictures
+    resources :api, :only => [] do
+      get 'v1', :on => :collection
+      get 'v2', :on => :collection
+    end
   end
   
-  namespace :api2 do
-    resources :places, :only => [] do
-      get 'audio', :on => :member
+  namespace :api do
+    namespace :v2 do
+      resources :pictures, :only => [:create, :show]
+      resources :places, :only => [:create, :show] do
+        get 'mp3', :on => :member
+        post 'search', :on => :collection
+      end
     end
   end
 end

@@ -22,11 +22,15 @@ zh-CN:
         search: "搜索照片"
         new: "添加照片"
         edit: "修改照片"
+      api:
+        v1: "第一版"
+        v2: "第二版"
     menus:
       root: "首页"
       scenic: "景区"
       place: "景点"
       picture: "照片"
+      api: "API"
     links:
       back_front: "返回前台"
       logout: "退出"
@@ -36,6 +40,8 @@ zh-CN:
       edit: "编辑"
       destroy: "删除"
       storage: "入库"
+      v1: "第一版"
+      v2: "第二版"
     buttons:
       list: "%{model}列表"
       new:  "添加%{model}"
@@ -59,3 +65,10 @@ zh-CN:
       confirm: "你确定要这样做吗？"
       select_empty: "你没有选中任何东西，操作无法继续。"
       upload_queue_complete: "列表上传完毕。"
+      resident_memory_usage: "寄存的内存数"
+      total_memory_usage: "总共的内存数"
+      isk_daemon_uptime: "服务器启动时间"
+      stack_memory_usage: "内存堆栈"
+      number_of_databases: "数据库个数"
+      status: "服务器状态"
+      

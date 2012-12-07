@@ -35,4 +35,9 @@ gem 'rails-settings-cached'
 
 group :development do
   gem 'thin'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-nav'
+  gem 'pry-remote'
+  gem 'pry-rails'
 end

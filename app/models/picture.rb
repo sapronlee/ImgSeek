@@ -16,20 +16,20 @@ class Picture < ActiveRecord::Base
   # Validates
   validates :image, :scenic_id, :presence => true
   
-  def find_image_to_imgseek
-    result = Server.find_image(scenic_id, image.path, 1)
-    if !result.nil?
-      puts "similarity is #{result.first.last}"
-      Picture.find(result.first.first) if result.first.last > Setting.similarity
-    else
-      nil
+  # result is pictrue.id array
+  def find_by_path
+    result = []
+    server_result = Server.find_image(scenic_id, image.path)
+    server_result.each do |i|
+      result << i.first if i.last > Setting.similarity
     end
+    result
   end
   
   private
   def update_image_attributes
     if image.present? && image_changed?
-      self.image_type = image.file.content_type
+      self.image_type = MIME::Types.type_for(image.file.original_filename).first.to_s
       self.image_size = image.file.size
       self.title = image.file.basename.strip if title.blank?
     end

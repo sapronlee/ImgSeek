@@ -19,4 +19,7 @@ class Place < ActiveRecord::Base
   	description.validates :description, :length => { :within => 2..10000 }
   end
   
+  # Scopes
+  scope :search_by_name, lambda { |name| where("ucase(`places`.`name`) like concat('%',ucase(?),'%')", name) }
+  
 end
