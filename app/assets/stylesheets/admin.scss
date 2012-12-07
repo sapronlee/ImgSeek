@@ -15,19 +15,28 @@ pre {
   font-size: 11px;
 }
 
-textarea.log {
-  width: 906px;
-  height: 200px;
-  min-width: 906px;
-  max-width: 906px;
-  min-height: 200px; 
-}
-
 .page-header {
   padding-bottom: 0;
   margin: 20px 0 20px;
   h1 {
     font-size: 30px;
+  }
+}
+
+/* 后台首页 */
+#server {
+  margin-top: 20px;
+  textarea.log {
+    width: 906px;
+    height: 200px;
+    min-width: 906px;
+    max-width: 906px;
+    min-height: 200px; 
+  }
+  .alert {
+    strong {
+      padding-right: 5px;
+    }
   }
 }
 
