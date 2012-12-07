@@ -25,7 +25,7 @@
     <small class="desc">上传图片并返回匹配结果，结果是一个包含匹配的景点数组。</small>
     <dl>
       <dt>URL</dt>
-      <dd><pre class="docs-example">http://dev.1trip.com/api/v2/pictures.json</pre></dd>
+      <dd><pre class="docs-example"><%= api_v2_pictures_url(:format => :json) %></pre></dd>
       <dt>HTTP请求方式</dt>
       <dd>POST<dd>
       <dt>支持格式</dt>
@@ -70,7 +70,7 @@
     <dl>
       <dt>URL</dt>
       <dd>
-        <pre class="docs-example">http://dev.1trip.com/api/v2/pictures/1.json</pre>
+        <pre class="docs-example"><%= api_v2_picture_url(:id, :format => :json) %></pre>
       </dd>
       <dt>HTTP请求方式</dt>
       <dd>GET</dd>
@@ -109,7 +109,7 @@
     <dl>
       <dt>URL</dt>
       <dd>
-        <pre class="docs-example">http://dev.1trip.com/api/v2/places/search.json</pre>
+        <pre class="docs-example"><%= search_api_v2_places_url(:format => :json) %></pre>
       </dd>
       <dt>HTTP请求方式</dt>
       <dd>POST</dd>
@@ -148,7 +148,7 @@
     <dl>
       <dt>URL</dt>
       <dd>
-        <pre class="docs-example">http://dev.1trip.com/api/v2/places/1.json</pre>
+        <pre class="docs-example"><%= api_v2_place_url(:id, :format => :json) %></pre>
       </dd>
       <dt>HTTP请求方式</dt>
       <dd>GET</dd>
@@ -187,7 +187,7 @@
     <dl>
       <dt>URL</dt>
       <dd>
-        <pre class="docs-example">http://dev.1trip.com/api/v2/places/id/mp3</pre>
+        <pre class="docs-example"><%= mp3_api_v2_place_url(:id) %></pre>
       </dd>
       <dt>HTTP请求方式</dt>
       <dd>GET</dd>
