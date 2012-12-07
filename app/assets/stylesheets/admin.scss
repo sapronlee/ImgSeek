@@ -37,6 +37,13 @@ pre {
     strong {
       padding-right: 5px;
     }
+    small {
+      margin-left: 10px;
+      color: #999;
+      &::before {
+        content: '\2014 \00A0';
+      }
+    }
   }
 }
 
