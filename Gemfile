@@ -11,20 +11,24 @@ end
 
 gem 'jquery-rails'
 gem 'rails-i18n'
+gem 'execjs'
+gem 'therubyracer'
 
 # devise
 gem 'devise'
 
 # bootstrap
 gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
-gem 'bootstrap_helper', :github => 'sapronlee/bootstrap-helper'
+#gem 'bootstrap_helper', :github => 'sapronlee/bootstrap-helper'
+gem "twitter-bootstrap-rails"
 
 # carrierwave
 gem 'carrierwave'
 
 # other
 gem 'simple_form'
-gem 'kaminari', :github => 'amatsuda/kaminari'
+#gem 'kaminari', :github => 'amatsuda/kaminari'
+gem 'kaminari'
 gem 'mime-types'
 gem 'mini_magick'
 gem 'httpi'

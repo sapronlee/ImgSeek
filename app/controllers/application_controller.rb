@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
     @page_title = "#{title}" if !title.blank?
     @page_keywords = keywords if !keywords.blank?
     @page_description = description if !description.blank?
-    add_breadcrumb(title)
+    #add_breadcrumb(title)
   end
 end
