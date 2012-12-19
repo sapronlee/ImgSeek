@@ -12,7 +12,7 @@ class Admin::ApiController < Admin::ApplicationController
   
 	private
 	def add_common_breadcrumb
-    #add_breadcrumb(t("admin.menus.api"), v2_admin_api_index_path)
+    add_breadcrumb(t("admin.menus.api"), v2_admin_api_index_path)
 	end
   
 end
