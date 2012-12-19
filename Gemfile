@@ -19,7 +19,7 @@ gem 'devise'
 
 # bootstrap
 gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
-#gem 'bootstrap_helper', :github => 'sapronlee/bootstrap-helper'
+gem 'bootstrap_helper', :git => 'https://github.com/sapronlee/bootstrap-helper.git'
 gem "twitter-bootstrap-rails"
 
 # carrierwave
@@ -27,7 +27,6 @@ gem 'carrierwave'
 
 # other
 gem 'simple_form'
-#gem 'kaminari', :github => 'amatsuda/kaminari'
 gem 'kaminari'
 gem 'mime-types'
 gem 'mini_magick'
