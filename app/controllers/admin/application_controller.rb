@@ -6,7 +6,7 @@ class Admin::ApplicationController < ApplicationController
 	before_filter :cpanel_breadcrumb
 
 	def cpanel_breadcrumb
-		#add_breadcrumb(t("admin.root"), admin_root_path)
+		add_breadcrumb(t("admin.root"), admin_root_path)
 	end
   
 end

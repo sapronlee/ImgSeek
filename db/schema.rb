@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118030108) do
+ActiveRecord::Schema.define(:version => 20121219130103) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "place_id"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(:version => 20121118030108) do
     t.string   "image"
     t.string   "image_type"
     t.integer  "image_size"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "title"
+    t.binary   "sig",        :limit => 16777215
+    t.integer  "siglen"
   end
 
   create_table "places", :force => true do |t|
