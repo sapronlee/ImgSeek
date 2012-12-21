@@ -18,3 +18,5 @@
 # Ignore aptana project file
 /.project
 
+config/database.yml
+
