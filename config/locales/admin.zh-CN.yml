@@ -2,6 +2,8 @@ zh-CN:
   imgseeks:
     server:
       error: "`ImgSeek` 服务器异常，请检查！"
+      img_import_error: "［服务器异常］=> 图片特征值计算过程出错!"
+      img_search_error: "［服务器异常］=> 图片搜索匹配计算过程出错！"
   admin:
     root: "控制台"
     pages:
