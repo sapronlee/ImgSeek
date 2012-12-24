@@ -1,15 +1,13 @@
-class Api::V2::PicturesController < Api::V2::ApplicationController
+class Api::V3::PicturesController < Api::V3::ApplicationController
   
   def create
     param = { :scenic_id => params[:scenic], :image => params[:image] }
-    
+    upload_time = Time.now.to_s
     @picture = Picture.new param
     if @picture.save
       result = []
-      p_arr = @picture.find_by_path
-      p_arr.each do |p|
-        result << Picture.find(p).place
-      end
+      pics = @picture.find_by_feature(param[:scenic_id])
+      pics.each{|e| result << e[:pic].place }
       result.uniq!
     end
     render :json => result
