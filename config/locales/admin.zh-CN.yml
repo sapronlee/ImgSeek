@@ -2,6 +2,8 @@ zh-CN:
   imgseeks:
     server:
       error: "`ImgSeek` 服务器异常，请检查！"
+      img_import_error: "［服务器异常］=> 图片特征值计算过程出错!"
+      img_search_error: "［服务器异常］=> 图片搜索匹配计算过程出错！"
   admin:
     root: "控制台"
     pages:
@@ -25,6 +27,7 @@ zh-CN:
       api:
         v1: "第一版"
         v2: "第二版"
+        v3: "第三版本"
     menus:
       root: "首页"
       scenic: "景区"
@@ -42,6 +45,7 @@ zh-CN:
       storage: "入库"
       v1: "第一版"
       v2: "第二版"
+      v3: "第三版"
     buttons:
       list: "%{model}列表"
       new:  "添加%{model}"

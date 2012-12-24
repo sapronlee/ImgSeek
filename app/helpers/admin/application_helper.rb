@@ -14,6 +14,10 @@ module Admin::ApplicationHelper
     else
       t("#{source.gsub(/[\s-]/, "_").downcase}")
     end
-    
   end
+  
+  def is_active(action_name, type)
+    button_status = action_name == type ? "btn active" : "btn"
+  end
+  
 end
