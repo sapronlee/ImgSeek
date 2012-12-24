@@ -1,4 +1,4 @@
-class Api::V2::PlacesController < Api::V2::ApplicationController
+class Api::V3::PlacesController < Api::V3::ApplicationController
   
   def show
     @place = Place.find params[:id]

@@ -27,6 +27,7 @@ zh-CN:
       api:
         v1: "第一版"
         v2: "第二版"
+        v3: "第三版本"
     menus:
       root: "首页"
       scenic: "景区"
@@ -44,6 +45,7 @@ zh-CN:
       storage: "入库"
       v1: "第一版"
       v2: "第二版"
+      v3: "第三版"
     buttons:
       list: "%{model}列表"
       new:  "添加%{model}"

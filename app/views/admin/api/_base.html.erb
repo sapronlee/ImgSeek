@@ -1,8 +1,9 @@
 <% content_for :toolbar do %>
 	<div class="btn-group">
-		<% if %w(v1 v2).include?(action_name) -%>
-      <%= link_to t("admin.links.v1"), v1_admin_api_index_path, :class => action_name == "v2" ? "btn" : "btn active" %>
-      <%= link_to t("admin.links.v2"), v2_admin_api_index_path, :class => action_name == "v1" ? "btn" : "btn active" %>
+	  <% if %w(v1 v2 v3).include?(action_name) -%>
+       <%= link_to t("admin.links.v1"), v1_admin_api_index_path, :class => is_active(action_name, "v1") %>
+       <%= link_to t("admin.links.v2"), v2_admin_api_index_path, :class => is_active(action_name, "v2") %>
+       <%= link_to t("admin.links.v3"), v3_admin_api_index_path, :class => is_active(action_name, "v3") %>
       <% end %>
 	</div>
 <% end -%>

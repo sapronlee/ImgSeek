@@ -7,30 +7,27 @@ class Picture < ActiveRecord::Base
   
   # carrierwave
   mount_uploader :image, ImageUploader
-  
-  # filter
+
+  # Callback
   before_save :update_image_attributes, :update_place_attributes
   
   # Validates
   validates :image, :scenic_id, :presence => true
 
-   def find_by_feature(scenic_id)
-     begin
-      results = []
-      rs = []
-      stored_pictures = Picture.where("place_id!=0 AND scenic_id=?", scenic_id)
-      stored_pictures.each do |i|
-        feature_cnt = PictureMatch.match_pic_feature(sig, siglen, i.sig, i.siglen)
-        result = {:fcount => feature_cnt, :pic => i}
-        results << result
-      end
-      results = results.sort_by{|e| e[:fcount]}.reverse
-      satisfied_cnt = results.find_all{|e| e[:fcount] > Setting.threshold}.length
-      satisfied_cnt.zero? ? results.each{|x| rs << x[:pic] } : rs << results.first[:pic]
-      rs.take(5)
-     rescue
-      raise "imgseeks.server.img_import_error"
+  def find_by_feature(scenic_id)
+    begin
+     results = []
+     stored_pictures = Picture.where("place_id!=0 AND scenic_id=?", scenic_id)
+     stored_pictures.each do |i|
+       feature_cnt = PictureMatch.match_pic_feature(sig, siglen, i.sig, i.siglen)
+       results << {:fcount => feature_cnt, :pic => i}
      end
+     results = results.sort_by{|e| e[:fcount]}.reverse
+     satisfied_cnt = results.find_all{|e| e[:fcount] > Setting.threshold}.length
+     results = satisfied_cnt.zero? ? results.take(5) : results.take(1)
+    rescue
+     raise "imgseeks.server.img_import_error"
+    end
   end
   
   private
