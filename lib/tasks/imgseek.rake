@@ -18,7 +18,7 @@ namespace :imgseek do
       end
     end
   end
-  
+
   desc "清除无效的景区"
   task :clean => :environment do
     begin
@@ -31,4 +31,20 @@ namespace :imgseek do
       puts "`ImgSeek` 服务器错误！"
     end
   end
+
+  desc "Caculate the sig of each picture stored in the database"
+  task :calc_sig => :environment do
+    no_sig_pictures = Picture.where("sig IS NULL")
+    puts no_sig_pictures.length
+    no_sig_pictures.each do |e|
+      puts e.image.path
+      r = PictureMatch.get_pic_feature(e.image.path)
+      puts r[0].length
+      puts r[1]
+      e.sig = r[0]
+      e.siglen = r[1]
+      e.save
+    end
+  end
+
 end
