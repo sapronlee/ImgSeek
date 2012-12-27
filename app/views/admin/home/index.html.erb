@@ -8,5 +8,7 @@
   <div class="page-header">
     <h1>服务器日志</h1>
   </div>
-  <textarea class="log"><%= @server_logs %></textarea>
+  <div id="msg" class="prettyprint">
+      <pre id="log_msg"><%= @server_logs %></pre>
+  </div>
 </div>

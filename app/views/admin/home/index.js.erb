@@ -2,5 +2,5 @@
   $("#status").replaceWith("<%= j(render("status")) %>");
 <% end %>
 <% if !@server_logs.blank? %>
-  $(".log").empty().append("<%= j(@server_logs) %>");
+  $("#log_msg").empty().append("<%= j(@server_logs) %>");
 <% end %>
