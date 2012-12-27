@@ -19,4 +19,5 @@
 /.project
 
 config/database.yml
+public/assets
 
