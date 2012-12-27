@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     @page_description = description if !description.blank?
     add_breadcrumb(title)
   end
+  
+  def get_latest_log
+    last_log = Log.last
+    formated_msg = last_log.nil? ? "" : "Frome IP:" + last_log.ip + " at " + last_log.time.to_s + " time query picture results:" + last_log.msg
+  end
 end
