@@ -34,7 +34,7 @@ namespace :imgseek do
 
   desc "Caculate the sig of each picture stored in the database"
   task :calc_sig => :environment do
-    no_sig_pictures = Picture.where("sig IS NULL")
+    no_sig_pictures = Picture.where("sig IS NULL AND place_id != 0")
     puts no_sig_pictures.length
     no_sig_pictures.each do |e|
       puts e.image.path
