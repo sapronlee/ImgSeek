@@ -68,6 +68,16 @@ class Admin::PicturesController < Admin::ApplicationController
     end
 	end
 
+  def get_options
+    logger.info(params[:id])
+    options = ""
+    places = Place.where("scenic_id=?", params[:id])
+    places.each do |s|
+      options << "<option value=#{s.id}>#{s.name}</option>"
+    end
+    render :text => options
+  end
+
 	private
 	def add_common_breadcrumb
     add_breadcrumb(t("admin.pages.pictures.index"), admin_pictures_path) if @place.blank?

@@ -6,8 +6,10 @@
       <%= f.input :title, :input_html => { :class => "span5" } %>
     <% end %>
     <% if %w(edit update).include?(action_name) or @place.blank? %>
-      <%= f.association :scenic %>
-      <%= f.association :place %>
+      <%= t("admin.pages.scenics.index") %>
+      <%= select_tag "scenic", options_for_select(["----请选择----"] + Scenic.all.collect{|e| [e.name,e.id]}), :onchange => "get_options(this.value)" %><br />
+      <%= t("admin.pages.places.index") %>
+      <%= select_tag "place", options_for_select(["----请选择景区----"]) %>
     <% else %>
       <%= f.input :scenic_id, :as => :hidden, :input_html => { :value => @place.scenic_id } %>
       <%= f.input :place_id, :as => :hidden, :input_html => { :value => @place.id } %>
@@ -22,3 +24,16 @@
 		</div>
 	</fieldset>
 <% end -%>
+
+<script type="text/javascript">
+	function get_options(value) {
+		$.ajax({
+			type : "GET",
+			url : '/admin/pictures/get_options',
+			data : {id: value},
+			success : function(data) {
+			    $("#place").html(data);
+			}
+		})
+	}
+</script>
