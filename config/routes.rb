@@ -3,19 +3,22 @@ ImgSeek::Application.routes.draw do
   root :to => 'home#index'
   
   namespace :admin do
-  	root :to => "home#index"
   	resources :scenics, :except => [:show] do
       resources :places
     end
     resources :places do
       resources :pictures
     end
-    resources :pictures
+    resources :pictures do
+      resources :pictures
+      get "get_options", :on => :collection
+    end
     resources :api, :only => [] do
       get 'v1', :on => :collection
       get 'v2', :on => :collection
       get 'v3', :on => :collection
     end
+    root :to => "home#index"
   end
   
   namespace :api do
