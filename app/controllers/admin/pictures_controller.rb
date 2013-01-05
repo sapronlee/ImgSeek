@@ -27,12 +27,12 @@ class Admin::PicturesController < Admin::ApplicationController
 		@picture = Picture.new params[:picture]
     begin
   		if @picture.save
-  			redirect_to admin_pictures_path, :notice => t("admin.messages.success")
+  			redirect_to admin_place_pictures_path(@picture.place_id), :notice => t("admin.messages.success")
   		else
   			render :new
   		end
     rescue => e
-      redirect_to (@place.blank? ? admin_pictures_path : admin_place_pictures_path(@place)), :alert => t(e)
+      redirect_to (@place.blank? ? admin_pictures_path : admin_place_pictures_path(@picture.place_id)), :alert => t(e)
     end
 	end
 
@@ -68,10 +68,19 @@ class Admin::PicturesController < Admin::ApplicationController
     end
 	end
 
+  # For ajax call.
   def get_options
-    logger.info(params[:id])
+    scenic_id = params[:id]
+    if scenic_id.to_i.zero?
+      return render :text => "<option value=0>" + t("admin.pages.pictures.select_scenics_info") + "</option>"
+    end
+    
+    places = Place.where("scenic_id=?", scenic_id)
+    if places.count.to_i.zero?
+      return render :text => "<option value=0>" + t("admin.pages.pictures.no_places_info") + "</option>"
+    end
+    
     options = ""
-    places = Place.where("scenic_id=?", params[:id])
     places.each do |s|
       options << "<option value=#{s.id}>#{s.name}</option>"
     end
