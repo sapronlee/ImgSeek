@@ -78,4 +78,7 @@ zh-CN:
       stack_memory_usage: "内存堆栈"
       number_of_databases: "数据库个数"
       status: "服务器状态"
-      
+    helers:
+      links:
+        login: "登录"
+     

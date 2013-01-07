@@ -1,0 +1,33 @@
+$bodyBackground:#EEE;
+
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import "font-awesome";
+
+.white-bg {
+	@include translucent-background();
+}
+.warning-bg {
+	@include translucent-background($warningBackground);
+}
+.warning {
+	color: $yellow;
+}
+.success {
+	color: #5bb65b;
+}
+.fail {
+	color: #9d261d;
+}
+.primary {
+	color: #0073CC;
+}
+.danger {
+	color: #DA4E49;
+}
+.info {
+	color: #2D6987;
+}
+.white {
+	color: #fff;
+}
