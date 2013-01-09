@@ -7,6 +7,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap-sass'
   gem 'font-awesome-sass-rails'
 end
 
@@ -19,7 +20,6 @@ gem 'therubyracer'
 gem 'devise'
 
 # bootstrap
-gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 gem 'bootstrap_helper', :git => 'https://github.com/sapronlee/bootstrap-helper.git'
 
 # carrierwave
