@@ -21,6 +21,7 @@ gem 'devise'
 
 # bootstrap
 gem 'bootstrap_helper', :git => 'https://github.com/sapronlee/bootstrap-helper.git'
+gem 'twitter-bootstrap-rails'
 
 # carrierwave
 gem 'carrierwave'
