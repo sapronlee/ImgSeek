@@ -21,7 +21,7 @@ class Admin::PlacesController < Admin::ApplicationController
 		set_page_tags(t("admin.pages.places.new"))
 		@place = Place.new params[:place]
 		if @place.save
-			redirect_to admin_places_path, :notice => t("admin.messages.success")
+			redirect_to admin_place_pictures_path(@place), :notice => t("admin.messages.success")
 		else
 			render :new
 		end

@@ -1,0 +1,77 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require twitter/bootstrap
+//= require jquery/jquery.selected
+//= require jquery/jquery.fileupload-all
+//= require jquery/jquery.redactor
+//= require jquery/jquery.redactor.zh_cn
+
+$ -> 
+	$("table .actions").tooltip
+		selector: "[rel*=tooltip]"
+
+	$("#places").tooltip
+		selector: "[rel*=tooltip]"
+
+	$("table #select_all").select_all()
+
+	$(".destroy-multiple").click(
+		-> $("form.search-form").submit();
+	)
+
+	$("#ajax-form .modal-footer button[type=submit]").click(
+		()=> $("#ajax-form form").submit()
+	)
+
+	$(".simple_form")
+		.find(".permission")
+			.find("label.all input[type=checkbox]").click(
+				()-> 
+					module_check_box_checkd = $(this).attr("checked")
+					if module_check_box_checkd is "checked"
+						$(this).parent().nextAll().find("input[type=checkbox]").attr("disabled", "disabled").removeAttr("checked")
+					else
+						$(this).parent().nextAll().find("input[type=checkbox]").removeAttr("disabled")
+			)
+			.end()
+		.find("div.all input[type=checkbox]").click(
+			()->
+				all_module_check_box_checkd = $(this).attr("checked")
+				if all_module_check_box_checkd is "checked"
+					$(this).parents(".controls").nextAll().find("input[type=checkbox]").attr("disabled", "disabled").removeAttr("checked")
+				else
+					$(this).parents(".controls").nextAll().find("input[type=checkbox]").removeAttr("disabled")
+		)
+
+	$("form textarea[name*=body]").redactor
+		autoresize: false
+		lang: 'zh_cn'
+		buttons: ['html', '|', 'formatting', '|', 'bold', 'italic', 'deleted', '|',
+							'unorderedlist', 'orderedlist', 'outdent', 'indent', '|',
+							'image', 'table', 'link', '|',
+							'fontcolor', 'backcolor', '|', 
+							'alignleft', 'aligncenter', 'alignright', 'justify', '|',
+							'horizontalrule'
+						]
+		buttonsCustom: 
+			image: 
+				title: '图片'
+				callback: (obj, event, key)->
+					$.get("/admin/pictures/new")
+					return
+
+	$("#upload-modal")
+		.find("#pictures")
+			.find("li.box .image-box").live "click",
+				()-> $(this).toggleClass("selected")
+			.end()
+		.end()
+		.find(".modal-footer a.insert").live "click",
+			()->
+				$.utility.insertImageToTextarea($("#article_body")) 
+				$("#upload-modal").modal("hide")
+				return
+
+	return
+

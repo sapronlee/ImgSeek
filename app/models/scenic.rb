@@ -2,7 +2,7 @@ class Scenic < ActiveRecord::Base
   attr_accessible :name
 
   # Associations
-  has_many :places, :order => "created_at DESC"
+  has_many :places, :order => "created_at DESC", :dependent => :destroy
   has_many :pictures, :order => "created_at DESC"
 
   # Validates
@@ -14,13 +14,13 @@ class Scenic < ActiveRecord::Base
 
   def servers_count
     begin
-      Server.get_images(id).size
+      Picture.where("scenic_id=? AND place_id != 0", id).count
     rescue
     0
     end
   end
 
-  def picture_count
+  def pictures_count
     Picture.where(:scenic_id => id).count
   end
 

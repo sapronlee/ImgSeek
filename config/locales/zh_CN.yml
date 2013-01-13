@@ -1,0 +1,718 @@
+# Chinese (China) translations for Ruby on Rails
+# by tsechingho (http://github.com/tsechingho)
+
+"zh_CN":
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+    day_names:
+      - 星期日
+      - 星期一
+      - 星期二
+      - 星期三
+      - 星期四
+      - 星期五
+      - 星期六
+    abbr_day_names:
+      - 日
+      - 一
+      - 二
+      - 三
+      - 四
+      - 五
+      - 六
+    month_names:
+      - ~
+      - 一月
+      - 二月
+      - 三月
+      - 四月
+      - 五月
+      - 六月
+      - 七月
+      - 八月
+      - 九月
+      - 十月
+      - 十一月
+      - 十二月
+    abbr_month_names:
+      - ~
+      - 1月
+      - 2月
+      - 3月
+      - 4月
+      - 5月
+      - 6月
+      - 7月
+      - 8月
+      - 9月
+      - 10月
+      - 11月
+      - 12月
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y年%b%d日 %A %H:%M:%S %Z"
+      short: "%b%d日 %H:%M"
+      long: "%Y年%b%d日 %H:%M"
+    am: "上午"
+    pm: "下午"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分钟"
+      less_than_x_seconds:
+        one: "不到1秒"
+        other: "不到%{count}秒"
+      x_seconds:
+        one: "1秒"
+        other: "%{count}秒"
+      less_than_x_minutes:
+        one: "不到1分钟"
+        other: "不到%{count}分钟"
+      x_minutes:
+        one: "1分钟"
+        other: "%{count}分钟"
+      about_x_hours:
+        one: "大约1小时"
+        other: "大约%{count}小时"
+      x_days:
+        one: "1天"
+        other: "%{count}天"
+      about_x_months:
+        one: "大约1个月"
+        other: "大约%{count}个月"
+      x_months:
+        one: "1个月"
+        other: "%{count}个月"
+      about_x_years:
+        one: "大约1年"
+        other: "大约%{count}年"
+      over_x_years:
+        one: "1年多"
+        other: "%{count}年多"
+      almost_x_years:
+        one:   "接近1年"
+        other: "接近%{count}年"
+    prompts:
+      year:   "年"
+      month:  "月"
+      day:    "日"
+      hour:   "时"
+      minute: "分"
+      second: "秒"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%u %n"
+        unit: "CN¥"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          # 10^-21 zepto, 10^-24 yocto
+          atto: "渺"  # 10^-18
+          femto: "飞" # 10^-15 毫微微
+          pico: "漠"  # 10^-12 微微
+          nano: "奈"  # 10^-9 毫微
+          micro: "微" # 10^-6
+          mili: "毫"  # 10^-3 milli
+          centi: "厘" # 10^-2
+          deci: "分"  # 10^-1
+          unit: ""
+          ten:
+            one: "十"
+            other: "十"  # 10^1
+          hundred: "百"  # 10^2
+          thousand: "千" # 10^3 kilo
+          million: "百万" # 10^6 mega
+          billion: "十亿" # 10^9 giga
+          trillion: "兆" # 10^12 tera
+          quadrillion: "千兆" # 10^15 peta
+          # 10^18 exa, 10^21 zetta, 10^24 yotta
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " 和 "
+      last_word_connector: ", 和 "
+    select:
+      prompt: "请选择"
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "不包含于列表中"
+      exclusion: "是保留关键字"
+      invalid: "是无效的"
+      format_invalid: "格式错误"
+      confirmation: "与确认值不匹配"
+      accepted: "必须是可被接受的"
+      empty: "不能留空"
+      blank: "不能为空字符"
+      too_long: "过长（最长为 %{count} 个字符）"
+      too_short: "过短（最短为 %{count} 个字符）"
+      wrong_length: "长度非法（必须为 %{count} 个字符）"
+      not_a_number: "不是数字"
+      not_an_integer: "必须是整数"
+      greater_than: "必须大于 %{count}"
+      greater_than_or_equal_to: "必须大于或等于 %{count}"
+      equal_to: "必须等于 %{count}"
+      less_than: "必须小于 %{count}"
+      less_than_or_equal_to: "必须小于或等于 %{count}"
+      odd: "必须为单数"
+      even: "必须为双数"
+      taken: "已经被使用"
+      record_invalid: "验证失败: %{errors}"
+      carrierwave_processing_error: 处理错误
+      carrierwave_integrity_error: 格式不是可上载的类型
+      extension_white_list_error: "不可上载 %{extension} 档案，可以上载的档案类型为：%{allowed_types}"
+      rmagick_processing_error: "用 rmagick 处理档案时发生错误，也许上载的不是档案？原错误讯息：%{e}"
+      mime_types_processing_error: "处理档案 MIME::Types 时发生错误，也许上载的档案不是正确的 content-type ？原错误：%{e}"
+      mini_magick_processing_error: "使用 MiniMagick 处理影像时发生错误，也许上载的不是影像档？原错误：%{e}"
+      wrong_size: "文件大小不对 (要求 %{file_size})"
+      size_too_small: "文件太小 (至少要 %{file_size})"
+      size_too_big: "文件过大 (最大只能 %{file_size})"
+    template: &errors_template
+      header:
+        one: "有 1 个错误发生导致「%{model}」无法被保存。"
+        other: "有 %{count} 个错误发生导致「%{model}」无法被保存。"
+      body: "以下属性出现错误："
+      expired: "您已过期，请重新申请"
+      not_found: "没有找到"
+      already_confirmed: "已经激活，请重新登录."
+      not_locked: "未锁定"
+      not_saved:
+        one: "因为 1 个错误导致此 %{resource}保存失败:"
+        other: "因为 %{count}个错误导致此 %{resource}保存失败:"
+
+  activerecord:
+    errors:
+      full_messages:
+        format: "%{attribute} %{message}"
+      messages:
+        <<: *errors_messages
+      template:
+        <<: *errors_template
+    models:
+      province: "省市"
+      minority: "民族"
+      place: "景点"
+      area: "模版"
+      area_category: "模版分类"
+      info: "信息"
+      audio: "音频"
+      video: "视频"
+      article: "文章"
+      image: "封面"
+      picture: "图片"
+      user: "用户"
+      user_profile: "用户信息"
+      role: "角色"
+      permission: "权限"
+      setting: "设置"
+    attributes:
+      province:
+        name: "名字"
+        key: "关键字"
+        created_at: "创建时间"
+        places_count: "景点数"
+        minorities_count: "民族数"
+      place:
+        name: "名字"
+        province_id: "省市"
+        province: "省市"
+        key: "url"
+        keywords: "关键词"
+        description: "描述"
+        areas_count:  "模版数"
+        order: "排序"
+        created_at: "创建时间"
+      minority:
+        name: "名字"
+        province_id: "省市"
+        province: "省市"
+        key: "url"
+        keywords: "关键词"
+        description: "描述"
+        areas_count:  "板块数"
+        order: "排序"
+        created_at: "创建时间"
+      area:
+        area_category: "模版分类"
+        area_category_id: "模版分类"
+        order: "排序"
+        created_at: "创建时间"
+        description: "描述"
+      area_category:
+        name: "名字"
+        category_cd: "分类"
+        style_type_cd: "样式"
+        description: "描述"
+        created_at: "创建时间"
+      image:
+        name: "名字"
+        image: "文件"
+        order: "排序"
+      info:
+        var: "名字"
+        value: "内容"
+        order: "排序"
+        place_id: "景点"
+        place: "景点"
+      audio:
+        name: "名字"
+        order: "排序"
+        attachment: "文件"
+        category_cd: "类别"
+        place_id: "景点"
+        place: "景点"
+        duration: "时长"
+        body: "内容"
+      video:
+        name: "名字 "
+        order: "排序"
+        attachment: "文件"
+        category_cd: "类别"
+        place_id: "景点"
+        place: "景点"
+        duration: "时长"
+        cover: "封面"
+        body: "内容"
+      article:
+        title: "标题"
+        body: "内容"
+        keywords: "关键字"
+        description: "描述"
+        author: "作者"
+        category_cd: "类别"
+        order: "排序"
+      user:
+        login: "用户名"
+        password: "密码"
+        email: "邮箱"
+        password_confirmation: "确认密码"
+        remember_me: "记住我"
+        created_at: "创建时间"
+        updated_at: "修改时间"
+        roles: "角色"
+      profile:
+        real_name: "真实姓名"
+        sex_cd: "性别"
+        position: "职位"
+      role:
+        name: "名字"
+        description: "描述"
+        permissions: "权限"
+        created_at: "创建时间"
+      setting:
+        app_name: "网站名称"
+        app_keywords: "网站关键字"
+        app_description: "网站描述"
+        admin_page_size: "分页数"
+      permission:
+        
+    enums:
+      audio:
+        categories:
+          narrate: "景点解说"
+          story: "有声故事"
+      area_category:
+        style_types:
+          style_0: "地图&信息"
+          style_1: "视频"
+          style_2: "音频列表"
+          style_3: "文章（色块）"
+          style_4: "文章列表（红点）"
+          style_5: "文章列表（橙点）"
+          style_6: "图片&文章"
+          style_7: "视频&文章"
+          style_8: "儿童故事"
+        categories:
+          place: "景点"
+          minority: "民族"
+      user_profile:
+        sexes:
+          male: "男"
+          female: "女"
+      article:
+        categories:
+          travels: "游记攻略"
+          recommend: "壹推荐"
+      place:
+        status:
+          draft: "待审核"
+          publish: "已发布"
+      
+  helpers:
+    select:
+      prompt: "请选择"
+    submit:
+      create: "添加%{model}"
+      update: "修改%{model}"
+      submit: "储存%{model}"
+      setting: "保存%{model}"
+      cancel: "取消"
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "没有任何数据"
+          one: "共 <b>1</b> 条数据"
+          other: "共 <b>%{count}</b> 条数据"
+      more_pages:
+        display_entries: "显示数据 <b>%{first}&nbsp;-&nbsp;%{last}</b> 共 <b>%{total}</b> 条"
+    links:
+      home: "首页"
+      setting: "设置"
+      helper: "帮助"
+      login: "登录"
+      logout: "退出"
+      new: "添加"
+      edit: "修改"
+      read: "查看"
+      destroy: "删除"
+      map: "地图"
+      video: "视频"
+      audio: "音频"
+      article: "文章"
+      info: "信息"
+      delete_all: "批量删除"
+      cancel: "取消"
+      list: "列表"
+      upload: "上传"
+      select: "请选择%{model_name}"
+      search: "搜索"
+      action: "操作"
+      log: "日志"
+      all: "所有"
+      more: "更多"
+      close: "关闭"
+      save: "保存"
+      list_mode: "列表模式"
+      gallery_mode: "幻灯模式"
+      back_album: "回到相册"
+      continue: "继续上传"
+      media_cover: "上传封面"
+      back_list: "返回列表"
+      add_image: "添加封面"
+      add_area: "添加模版"
+      add_video: "添加视频"
+      add_audio: "添加音频"
+      add_article: "添加文章"
+      add_info: "添加信息"
+      edit_info: "修改信息"
+      back_place: "返回%{place_name}"
+      edit_place: "修改%{model}"
+      destroy_place: "删除%{model}"
+      add_place: "添加景区"
+      read_place: "查看景区"
+      edit_article: "修改文章"
+      reset_map: "重新上传地图"
+      tips: "小贴士"
+      exception: "出错啦"
+      back_home: "返回首页"
+      permission: "查看权限"
+      publish: "解锁模式"
+      draft: "锁定模式"
+    placeholder:
+      search: "搜索%{model}"
+    messages:
+      new: "恭喜你，已成功创建新的%{model_name}！"
+      edit: "恭喜你，已成功修改%{model_name}！"
+      destroy: "恭喜你，已成功删除%{model_name}！"
+      destroy_multiple: "恭喜你，你已经成功删除了%{count}个%{model_name}!"
+      error: "操作失败了，请联系管理员！"
+      confirm: "你确定这样做吗？"
+      search_error: "你没有提供任何要搜索的数据！"
+      selected_error: "操作失败，你没有选择任何项！"
+      not_edit_admin: "你没有权限修改该类型的用户。"
+      not_new_admin: "你没有权限添加该类型的用户。"
+      publish: "恭喜你，景区解锁成功！"
+      draft: "你已经将该景区转为锁定模式。"
+      setting: "你已经成功保存设置！"
+  views:
+    pagination:
+      first: "第一页"
+      last: "最后一页"
+      previous: "上一页"
+      next: "下一页"
+      truncate: "..."
+  fileupload:
+    links:
+      add: "添加文件"
+      start_all: "开始上传"
+      cancel_all: "取消上传"
+      delete: "删除选中"
+      start: "上传"
+      cancel: "取消"
+      reset: "返回"
+      add_cover: "添加封面文件"
+
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    labels:
+      user:
+        login: "用户名"
+        password: "密码"
+        email: "邮箱"
+        password_confirmation: "确认密码"
+      profile:
+        real_name: "真实姓名"
+        sex_cd: "性别"
+        position: "职位"
+    hints:
+      defaults:
+        username: ''
+        password: ''
+      province:
+        name: "必填，30个字符以内，名字必须唯一。"
+        key: "必填，生成唯一网址，30个字符以内，只能是A-Z，0-9和空格字符组成，名字必须唯一。"
+        order: "大于0小于999，只能是数字。"
+      area_category:
+        name: "必填，20个字符以内，名字必须唯一。"
+        category_cd: "必选，用以确定类型。"
+        style_type_cd: "必选，生成的样式。"
+        description: "选填，100个字符以内。"
+      area:
+        area_category: "必选，选择分类。"
+        order: "大于0小于999，只能是数字。"
+        description: "选填，1000个字符以内。"
+      place:
+        name: "必填，30个字符以内，名字必须唯一。"
+        key: "必填，生成唯一网址，30个字符以内，只能是A-Z，0-9和空格字符组成，名字必须唯一。"
+        province: "必选，选择隶属于的省市。"
+        keywords: "选填，SEO优化，100个字符以内。"
+        description: "选填，1000个字符以内。"
+      minority:
+        name: "必填，30个字符以内，名字必须唯一。"
+        key: "必填，生成唯一网址，30个字符以内，只能是A-Z，0-9和空格字符组成，名字必须唯一。"
+        province: "必选，选择隶属于的省市。"
+        keywords: "选填，SEO优化，100个字符以内。"
+        description: "选填，1000个字符以内。"
+      info:
+        var: "必填，200个字符以内，并且在同一个景点内必须唯一。"
+        value: "必填，100个字符以内。"
+        order: "选填，数字越大排序越高，默认为0。"
+      image:
+        name: "必填，30个字符以内，名字必须唯一。"
+        image: "必选，只能选择后缀为(jpg,jpeg,gif,png)格式的文件。"
+        order: "选填，数字越大排序越高，默认为0。"
+      audio:
+        name: "必填，30个字符以内，名字必须唯一。"
+        duration: "必填，格式：00:00:00，中间以半角':'分割。"
+        order: "选填，数字越大排序越高，默认为0。"
+        attachment: "必选，只能选择后缀为mp3格式的音频文件。"
+        category_cd: "必选，选择音频文件的类别。"
+        body: "选填，5000个字符以内。"
+      video:
+        name: "必填，30个字符以内，名字必须唯一。"
+        duration: "必填，格式：00:00:00，中间以半角':'分割。"
+        order: "选填，数字越大排序越高，默认为0。"
+        attachment: "必选，只能选择后缀为(mp4，m4v)格式的音频文件。"
+        body: "选填，5000个字符以内。"
+      article:
+        title: "必填，200个字符以内，名字必须唯一。"
+        body: "必填，5000个字符以内。"
+        keywords: "选填，SEO优化，100个字符以内。"
+        description: "选填，1000个字符以内。"
+        author: "必填，500个字符以内。"
+        category_cd: "必选，选择文章的类别。"
+        order: "选填，数字越大排序越高，默认为0。"
+      role:
+        name: "必填，30个字符以内，名字必须唯一。"
+        description: "选填，100个字符以内。"
+      user:
+        email: "必填，邮箱，必须唯一。"
+        password: "必填，6-20位。"
+        password_confirmation: "必填，确认密码，必须与密码一致。"
+      profile:
+        real_name: "必填，10个字符以内。"
+        sex_cd: "必选，不然你只能回火星了。"
+        position: "选填，30个字符以内。"
+      setting:
+        app_name: "给你的网站取个好听的名字吧！30字以内"
+        app_keywords: "为了优化，提供一些关键词吧！100字内。"
+        app_description: "用一些话来形容一下你的网站吧！100字内。"
+    placeholders:
+      user:
+        email: "邮箱"
+        password: "密码"
+        password_confirmation: "确认密码"
+
+  devise:
+    failure:
+      already_authenticated: '您已经登录.'
+      unauthenticated: '继续操作前请登录.'
+      unconfirmed: '继续操作前请先激活您的帐号.'
+      locked: '您的帐号已被锁定.'
+      invalid: '用户名或密码错误'
+      invalid_token: '认证码无效.'
+      timeout: '您已登录超时，请重新登录.'
+      inactive: '您还没有激活帐户.'
+    sessions:
+      signed_in: '登录成功.'
+      signed_out: '退出成功.'
+    passwords:
+      send_instructions: '稍后你将收到帐号激活的电子邮件'
+      updated: '您的密码已修改成功，您现在已登录.'
+      updated_not_active: '您的密码已修改成功.'
+      send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封找回密码的邮件.'
+    confirmations:
+      send_instructions: '稍后你将收到帐号激活的电子邮件'
+      confirmed: '您的帐号已经激活，您现在已登录.'
+      send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封激活账号的邮件.'
+    registrations:
+      signed_up: '欢迎您！您已注册成功.'
+      updated: '帐号资料更新成功.'
+      update_needs_confirmation: '您更改了邮箱地址，我们需要验证您的新邮箱地址，请查看您的邮箱，点击激活链接来验证您的新邮箱地址.'
+      destroyed: '再见！您的帐户已成功注销。我们希望很快可以再见到您.'
+      signed_up_but_unconfirmed: '带有激活链接的信息已经发送到你的邮箱。请打开此链接来激活你的帐号'
+      signed_up_but_inactive: '虽然您已经注册成功，但因为你的帐号还未激活，所以你暂时无法登录'
+      signed_up_but_locked: '虽然您已经注册成功，但因为你的帐号已被锁定，所以你暂时无法登录'
+    unlocks:
+      send_instructions: '稍后你将收到帐号激活的电子邮件'
+      unlocked: '您的帐号已成功解锁，您现在已登录.'
+      send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封解锁账号的邮件.'
+    omniauth_callbacks:
+      success: '成功地从 %{kind}获得授权.'
+      failure: '因为 %{reason}，所以您无法从 %{kind}获得授权.'
+    mailer:
+      confirmation_instructions:
+        subject: '激活信息'
+      reset_password_instructions:
+        subject: '重置密码信息'
+      unlock_instructions:
+        subject: '解锁信息'
+
+  unauthorized:
+    manage:
+      all: "你没有执行%{subject}模块的%{action}权限。"
+      user: "你没有管理用户模块的权限。"
+      role: "你没有管理用户角色的权限。"
+      province: "你没有管理省市模块的权限。"
+      place: "你没有管理景区模块的权限。"
+      article: "你没有管理景区文章模块的权限。"
+      info: "你没有管理景区信息模块的权限。"
+      video: "你没有管理景区视频模块的权限。"
+      audio: "你没有管理景区音频模块的权限。"
+    update:
+      user: "你没有修改用户的权限。"
+      role: "你没有修改用户角色的权限。"
+      province: "你没有修改省市的权限。"
+      place: "你没有修改景区的权限。"
+      article: "你没有修改景区文章模块的权限。"
+      info: "你没有修改景区信息模块的权限。"
+      video: "你没有修改景区视频模块的权限。"
+      audio: "你没有修改景区音频模块的权限。"
+    new:
+      user: "你没有添加用户的权限。"
+      role: "你没有添加用户角色的权限。"
+      province: "你没有添加省市的权限。"
+      place: "你没有添加景区的权限。"
+      article: "你没有添加景区文章模块的权限。"
+      info: "你没有添加景区信息模块的权限。"
+      video: "你没有添加景区视频模块的权限。"
+      audio: "你没有添加景区音频模块的权限。"
+    index:
+      user: "你没有查看用户的权限。"
+      role: "你没有查看用户角色的权限。"
+      province: "你没有查看省市模块的权限。"
+      place: "你没有查看景区的权限。"
+      article: "你没有查看景区文章模块的权限。"
+      info: "你没有查看景区信息模块的权限。"
+      video: "你没有查看景区视频模块的权限。"
+      audio: "你没有查看景区音频模块的权限。"
+      setting: "你没有设置模块的权限"
+    show:
+      user: "你没有查看用户的权限。"
+      role: "你没有查看用户角色的权限。"
+      province: "你没有查看省市模块的权限。"
+      place: "你没有查看景区的权限。"
+      article: "你没有查看景区文章模块的权限。"
+      info: "你没有查看景区信息模块的权限。"
+      video: "你没有查看景区视频模块的权限。"
+      audio: "你没有查看景区音频模块的权限。"
+    destroy:
+      user: "你没有删除用户的权限。"
+      role: "你没有查看用户角色的权限。"
+      province: "你没有删除省市的权限。"
+      place: "你没有删除景区的权限。"
+      article: "你没有删除景区文章模块的权限。"
+      info: "你没有删除景区信息模块的权限。"
+      video: "你没有删除景区视频模块的权限。"
+      audio: "你没有删除景区音频模块的权限。"
+
+  permission:
+    controllers:
+      all: "所有模块"
+      admin:
+        articles: "文章模块"
+        audios: "音频模块"
+        videos: "视频模块"
+        areas:  "模板模块"
+        area_categories: "模板分类模块"
+        images: "封面模块"
+        places: "景区模块"
+        minorities: "民族模块"
+        provinces: "省市模块"
+        roles: "用户角色模块"
+        infos: "信息模块"
+        users: "用户模块"
+        settings: "设置模块"
+    actions:
+      all: "全部"
+      read: "读取"
+      create: "新增"
+      update: "修改"
+      destroy: "删除"
+      publish: "发布"
+      permission: "查看权限"
+      setting: "设置个人信息"
+      
+
+

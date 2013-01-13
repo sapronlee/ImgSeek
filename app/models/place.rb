@@ -3,7 +3,7 @@ class Place < ActiveRecord::Base
   
   # Associations
   belongs_to :scenic, :counter_cache => true
-  has_many :pictures, :order => "created_at DESC"
+  has_many :pictures, :order => "created_at DESC", :dependent => :destroy
   
   # carrierwave
   mount_uploader :audio, MediaUploader
@@ -17,6 +17,10 @@ class Place < ActiveRecord::Base
   end
   with_options :if => :description? do |description|
   	description.validates :description, :length => { :within => 2..10000 }
+  end
+  
+  def pictures_count
+    Picture.where(:place_id => id).count
   end
   
   # Scopes

@@ -49,7 +49,7 @@ namespace :imgseek do
   
   desc "清除所有手机端上传的所有图片"
   task :clear_unused_pictures => :environment do
-    puts "正在搜索未使用的图片...."
+    puts "正在搜索未使用的图片..."
     unused_pictures = Picture.where("place_id = 0")
     puts "一共找到未使用的图片" + unused_pictures.length.to_s + "个!"
     unused_pictures.each do |e|
@@ -57,6 +57,23 @@ namespace :imgseek do
       e.destroy
     end
     puts "清理完毕！"
+  end
+  
+  desc "清除已入库但绑定的景区为空的图片"
+  task :clear_stored_picture_but_unbind_to_place => :environment do
+    puts "正在搜索已入库图片..."
+    stored_pictures = Picture.where("place_id != 0")
+    puts "一共已入库照片：" + stored_pictures.count.to_s + "张！"
+    puts "正在分析已入库但未绑定景点的图片..."
+    clear_count = 0
+    stored_pictures.find_each(:batch_size => 50) do |o|
+      if o.place.nil?
+        puts "找到 PictureID:" + o.id.to_s + "的图片景点为空，执行清理！"
+        o.destroy
+        clear_count += 1
+      end
+    end
+    puts "清理完毕！一共清理" + clear_count.to_s + "张无效图片！"
   end
   
   desc "清除所有的日志信息"
