@@ -9,4 +9,4 @@ Setting.defaults[:admin_PlacePageSize] = 8
 Setting.defaults[:admin_PhotoPageSize] = 12
 
 Setting.defaults[:similarity] = 40.0
-Setting.defaults[:threshold] = 500
+Setting.defaults[:threshold] = 15
