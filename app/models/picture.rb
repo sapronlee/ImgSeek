@@ -20,7 +20,7 @@ class Picture < ActiveRecord::Base
      t_query_before = Time.now
      stored_pictures = Picture.where("place_id!=0 AND scenic_id=?", scenic_id)
      t_query_after = t_retrieve_before = Time.now
-     stored_pictures.each do |i|
+     stored_pictures.find_each(:batch_size => 50) do |i|
        t_calc_before = Time.now
        feature_cnt = KMManager.match_pic_feature(sig, siglen, i.sig, i.siglen)
        t_calc_after = Time.now

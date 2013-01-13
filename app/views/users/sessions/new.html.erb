@@ -1,0 +1,20 @@
+<% content_for :title do -%>
+	<%= t("helpers.links.login") %>
+<% end -%>
+<div class="page-header">
+  <h1><%= t("helpers.links.login") %></h1>
+</div>
+
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+  	<%= f.input :email, :autofocus => true, :wrapper => :prepend, :as => :prepend, :icon => "icon-user",
+                :input_html => { :class => "span3" }, :label => false, :placeholder => true, :hint => false %>
+    <%= f.input :password, :required => false, :wrapper => :prepend, :as => :prepend_password, :icon => "icon-lock",
+                :input_html => { :class => :span3 }, :label => false, :placeholder => true, :hint => false %>
+    <%= f.input :remember_me, :as => :bootstrap_check_box, :label => false if devise_mapping.rememberable? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, t("helpers.links.login"), :class => "pull-right btn-primary btn-large" %>
+  </div>
+<% end %>

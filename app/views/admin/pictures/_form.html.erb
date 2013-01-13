@@ -7,9 +7,9 @@
     <% end %>
     <% if %w(edit update).include?(action_name) or @place.blank? %>
       <%= t("admin.pages.scenics.index") %>
-      <%= select_tag "scenic", options_for_select(["----请选择----"] + Scenic.all.collect{|e| [e.name,e.id]}), :onchange => "get_options(this.value)" %><br />
+      <%= select_tag "picture[scenic_id]", options_for_select([[t("admin.pages.pictures.select_place_info"), "0"]] + Scenic.all.collect{|e| [e.name,e.id]}), :onchange => "get_options(this.value)" %><br />
       <%= t("admin.pages.places.index") %>
-      <%= select_tag "place", options_for_select(["----请选择景区----"]) %>
+      <%= select_tag "picture[place_id]", options_for_select([[t("admin.pages.pictures.select_scenics_info"), "0"]]) %>
     <% else %>
       <%= f.input :scenic_id, :as => :hidden, :input_html => { :value => @place.scenic_id } %>
       <%= f.input :place_id, :as => :hidden, :input_html => { :value => @place.id } %>
@@ -29,10 +29,10 @@
 	function get_options(value) {
 		$.ajax({
 			type : "GET",
-			url : '/admin/pictures/get_options',
+			url: '<%= get_options_admin_pictures_path %>',
 			data : {id: value},
 			success : function(data) {
-			    $("#place").html(data);
+			    $("#picture_place_id").html(data);
 			}
 		})
 	}

@@ -16,8 +16,9 @@ class Api::V3::PicturesController < Api::V3::ApplicationController
       pics, query_time, query_records, retrive_query_result_time, sort_time, find_time = @picture.find_by_feature(param[:scenic_id])
       msg_records = ""
       pics.each do |e|
-        msg_records += "\n<br />  Feature count:" + sprintf("%#3d", e[:fcount]) + " , Matched picture ID: <a href='/admin/pictures/" + e[:pic].id.to_s + "'>" + sprintf("%#6d", e[:pic].id.to_s) + "</a> , Matche picture time consuming: " + e[:time_consuming] + "(s)"
-        result << e[:pic].place
+        picture_place = e[:pic].place
+        msg_records += "\n<br />  Feature count:" + sprintf("%#3d", e[:fcount]) + " , Place Name:" + picture_place.name + " , Matched picture ID: <a href='/admin/pictures/" + e[:pic].id.to_s + "'>" + sprintf("%#6d", e[:pic].id.to_s) + "</a> , Match time consuming: " + e[:time_consuming] + "(s)"
+        result << picture_place
       end
       result.uniq!
     end

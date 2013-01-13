@@ -24,6 +24,9 @@ zh-CN:
         search: "搜索照片"
         new: "添加照片"
         edit: "修改照片"
+        select_place_info: "----请选择----"
+        select_scenics_info: "----请选择景区----"
+        no_places_info: "没有可用景点!"
       api:
         v1: "第一版"
         v2: "第二版"
@@ -75,4 +78,7 @@ zh-CN:
       stack_memory_usage: "内存堆栈"
       number_of_databases: "数据库个数"
       status: "服务器状态"
-      
+    helers:
+      links:
+        login: "登录"
+     
