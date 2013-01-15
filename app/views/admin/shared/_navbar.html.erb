@@ -24,6 +24,9 @@
           <li <%= "class=active" if %w(api).include? controller_name %>>
             <%= link_to t("admin.menus.api"), v3_admin_api_index_path, :title => t("admin.menus.api") %>
           </li>
+          <li <%= "class=active" if %w(log).include? controller_name %>>
+            <%= link_to t("admin.menus.log"), admin_logs_path, :title => t("admin.menus.log") %>
+          </li>
         </ul>
         <ul class="nav pull-right">
           <li class="dropdown" id="user_menu">
