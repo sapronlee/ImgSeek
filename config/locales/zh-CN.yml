@@ -27,6 +27,10 @@ zh-CN:
         scenic_id: "景区"
         place: "景点"
         place_id: "景点"
+      log:
+         ip: "请求IP"
+         msg: "日志详细信息"
+         created_at: "创建时间"
     errors:
   helpers:
     links:

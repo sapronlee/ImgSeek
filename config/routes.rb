@@ -20,6 +20,8 @@ ImgSeek::Application.routes.draw do
       get 'v2', :on => :collection
       get 'v3', :on => :collection
     end
+    resources :logs
+    
     root :to => "home#index"
   end
   

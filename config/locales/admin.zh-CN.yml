@@ -31,12 +31,17 @@ zh-CN:
         v1: "第一版"
         v2: "第二版"
         v3: "第三版本"
+      logs:
+        index: "日志"
+        delete: "删除日志"
+        refresh: "刷新"
     menus:
       root: "首页"
       scenic: "景区"
       place: "景点"
       picture: "照片"
       api: "API"
+      log: "日志"
     links:
       back_front: "返回前台"
       logout: "退出"

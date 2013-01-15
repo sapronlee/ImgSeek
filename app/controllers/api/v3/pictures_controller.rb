@@ -1,3 +1,5 @@
+# encoding : utf-8
+
 class Api::V3::PicturesController < Api::V3::ApplicationController
   
   def create
@@ -13,28 +15,43 @@ class Api::V3::PicturesController < Api::V3::ApplicationController
     
     if save_ok
       result = []
-      pics, query_time, query_records, retrive_query_result_time, sort_time, find_time = @picture.find_by_feature(param[:scenic_id])
-      msg_records = ""
-      pics.each do |e|
-        picture_place = e[:pic].place
-        msg_records += "\n<br />  Feature count:" + sprintf("%#3d", e[:fcount]) + " , Place Name:" + picture_place.name + " , Matched picture ID: <a href='/admin/pictures/" + e[:pic].id.to_s + "'>" + sprintf("%#6d", e[:pic].id.to_s) + "</a> , Match time consuming: " + e[:time_consuming] + "(s)"
-        result << picture_place
-      end
+      find_results, query_time, query_records, retrive_query_result_time, sort_time, find_time = @picture.find_by_feature(param[:scenic_id])
+      records_log_msg = ""
+      find_results.each{|e| result << e[:place]; records_log_msg += e[:log_msg] }
       result.uniq!
     end
-    t_render_before = Time.now
-    render :json => result
-    t_render_after = t_create_finished = Time.now
-    msg_head = "\n<br />  Find unique results : " + result.length.to_s + " , Total time consuming: " + (t_create_finished - t_create_begin).to_s + "(s)"
-    msg_head += "\n<br />  Calc picture's feature: " + (t_calc_after - t_calc_before).to_s + "(s) , Queried : " + query_records + "(records) consuming: " + query_time + "(s) , Retrive queried result: " + retrive_query_result_time + "(s)"
-    msg_head += "\n<br />  Sort :" + sort_time + "(s) , Statistics :" + find_time + "(s), Render to JSON time span: " + (t_render_after - t_render_before).to_s + "(s)"
-    log_info[:msg] = msg_head + msg_records
+    t_create_finished = Time.now
+    
+    #binding.pry
+    log_info[:msg] = format_log({
+      result_count: result.length.to_s,
+      create_timespan: (t_create_finished - t_create_begin).to_s,
+      calc_timespan: (t_calc_after - t_calc_before).to_s,
+      query_records: query_records,
+      query_time: query_time,
+      retrive_timespan: retrive_query_result_time,
+      sort_time: sort_time,
+      find_time: find_time,
+      records_log: records_log_msg
+    })
     (Log.new log_info).save
+    
+    render :json => result
   end
   
   def show
     @picture = Picture.find params[:id]
     render :json => @picture
+  end
+  
+  private
+  def format_log(options = { })
+    #binding.pry
+    msg_head ="\n<br /> 共找到 : <b>" + options[:result_count] + "</b>（条）不重复记录, 共耗时: " + options[:create_timespan] + "(秒)。 计算特征值耗时: " + options[:calc_timespan] + "(秒)" +
+            "\n<br />  查询到 : " + options[:query_records] + "（条）记录， 查询耗时: " + options[:query_time] + "(秒) , 遍历查询结果耗时: " + options[:retrive_timespan] + "(秒)" +
+            "\n<br />  排序 :" + options[:sort_time] + "(秒)， 统计结果:" + options[:find_time] + "(秒)"
+              
+    msg_head + options[:records_log]
   end
   
 end

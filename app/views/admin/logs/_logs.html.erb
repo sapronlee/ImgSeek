@@ -1,0 +1,15 @@
+<% @logs.each do |log| %>
+  <tr>
+    <td class="content"><%= log.ip %></td>
+    <td class="content"><%= log.msg.html_safe %></td>
+    <td class="date"><%= l log.created_at %></td>
+    <td class="action">
+      <%= link_to raw("<i class=\"icon-trash icon-large\"></i>"),
+                  admin_log_path(log),
+                  :method => :delete,
+                  :title => t("admin.pages.logs.delete"),
+                  :data => { :confirm => t("admin.messages.confirm") },
+                  :rel => :tooltip %>
+    </td>
+  </tr>
+<% end %>
