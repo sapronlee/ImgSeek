@@ -1,0 +1,7 @@
+<% model_class = Log %>
+
+<% content_for :toolbar do %>
+<div class="btn-group">
+    <%= link_to t("admin.pages.logs.refresh"), admin_logs_path, :class => "btn btn-primary" %>
+</div>
+<% end -%>

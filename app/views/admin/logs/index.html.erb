@@ -1,0 +1,26 @@
+<%- model_class = Log -%>
+
+<%= render "base" %>
+
+<%= simple_form_for :log, :url => nil, :html => { :class => "destroies-form" }  do |f| -%>
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th><%= model_class.human_attribute_name(:ip) %></th>
+			<th><%= model_class.human_attribute_name(:msg) %></th>
+			<th class="date"><%= model_class.human_attribute_name(:created_at) %></th>
+			<th class="action"><%= t("admin.links.action") %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render "logs" %>
+	</tbody>
+</table>
+<% end -%>
+
+<div class="table-footer clearfix">
+	<div class="paginates-info">
+		<%= page_entries_info @logs %>
+	</div>
+	<%= paginate @logs, :theme => "admin" %>
+</div>

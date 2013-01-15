@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
@@ -10,6 +11,6 @@ class ApplicationController < ActionController::Base
   
   def get_latest_log
     last_log = Log.last
-    formated_msg = last_log.nil? ? "" : "Frome IP:" + last_log.ip + " at " + last_log.time.to_s + " time query picture results:" + last_log.msg
+    formated_msg = last_log.nil? ? "" : "来自IP为:" + last_log.ip + "的用户, 在" + last_log.time.to_s + "向服器发了请求。" + last_log.msg
   end
 end
